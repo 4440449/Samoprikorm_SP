@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		944FB72A284A43EE00E5B382 /* Extensions_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944FB729284A43EE00E5B382 /* Extensions_SP.swift */; };
+		944FB72D284A471900E5B382 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 944FB72C284A471900E5B382 /* Montserrat-Thin.ttf */; };
+		944FB732284A48A200E5B382 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 944FB731284A473500E5B382 /* Montserrat-ExtraBold.ttf */; };
+		944FB733284A48A400E5B382 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 944FB730284A473000E5B382 /* Montserrat-Bold.ttf */; };
+		944FB734284A48A600E5B382 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 944FB72F284A472B00E5B382 /* Montserrat-Black.ttf */; };
+		944FB735284A48A800E5B382 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 944FB72E284A472400E5B382 /* Montserrat-Regular.ttf */; };
 		9464928927C5524F00388E37 /* Samoprikorm_SPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9464928827C5524F00388E37 /* Samoprikorm_SPApp.swift */; };
 		9464928B27C5524F00388E37 /* MainScene_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9464928A27C5524F00388E37 /* MainScene_SP.swift */; };
 		9464928D27C5525200388E37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9464928C27C5525200388E37 /* Assets.xcassets */; };
@@ -19,6 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		944FB729284A43EE00E5B382 /* Extensions_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions_SP.swift; sourceTree = "<group>"; };
+		944FB72C284A471900E5B382 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		944FB72E284A472400E5B382 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		944FB72F284A472B00E5B382 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		944FB730284A473000E5B382 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		944FB731284A473500E5B382 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
 		9464928527C5524F00388E37 /* Samoprikorm_SP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Samoprikorm_SP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9464928827C5524F00388E37 /* Samoprikorm_SPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Samoprikorm_SPApp.swift; sourceTree = "<group>"; };
 		9464928A27C5524F00388E37 /* MainScene_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene_SP.swift; sourceTree = "<group>"; };
@@ -65,6 +77,11 @@
 				9464929C27C5695000388E37 /* Domain */,
 				9464929827C5682500388E37 /* Scenes */,
 				9464928C27C5525200388E37 /* Assets.xcassets */,
+				944FB731284A473500E5B382 /* Montserrat-ExtraBold.ttf */,
+				944FB730284A473000E5B382 /* Montserrat-Bold.ttf */,
+				944FB72F284A472B00E5B382 /* Montserrat-Black.ttf */,
+				944FB72E284A472400E5B382 /* Montserrat-Regular.ttf */,
+				944FB72C284A471900E5B382 /* Montserrat-Thin.ttf */,
 				9464928E27C5525200388E37 /* Preview Content */,
 			);
 			path = Samoprikorm_SP;
@@ -99,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				9464929727C5681700388E37 /* Main */,
+				944FB729284A43EE00E5B382 /* Extensions_SP.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -222,8 +240,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				944FB733284A48A400E5B382 /* Montserrat-Bold.ttf in Resources */,
 				9464929027C5525200388E37 /* Preview Assets.xcassets in Resources */,
+				944FB735284A48A800E5B382 /* Montserrat-Regular.ttf in Resources */,
+				944FB732284A48A200E5B382 /* Montserrat-ExtraBold.ttf in Resources */,
+				944FB72D284A471900E5B382 /* Montserrat-Thin.ttf in Resources */,
 				9464928D27C5525200388E37 /* Assets.xcassets in Resources */,
+				944FB734284A48A600E5B382 /* Montserrat-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +260,7 @@
 				9464928B27C5524F00388E37 /* MainScene_SP.swift in Sources */,
 				94768A792847BE7E00980844 /* MainSceneReducer_SP.swift in Sources */,
 				9464928927C5524F00388E37 /* Samoprikorm_SPApp.swift in Sources */,
+				944FB72A284A43EE00E5B382 /* Extensions_SP.swift in Sources */,
 				9464929B27C568EA00388E37 /* ProductCard.swift in Sources */,
 				946492A127C5935D00388E37 /* MainSceneState_SP.swift in Sources */,
 				946492A427C5967500388E37 /* MainSceneStore_SP.swift in Sources */,
@@ -374,6 +398,7 @@
 				DEVELOPMENT_TEAM = 49V2NFTYLV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Samoprikorm-SP-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -403,6 +428,7 @@
 				DEVELOPMENT_TEAM = 49V2NFTYLV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Samoprikorm-SP-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
