@@ -11,13 +11,27 @@ import SwiftUI
 //import Combine
 
 struct MainSceneView: View {
+    
+    
+    //MARK: - init
+    
     init(store: MainSceneStore_SP) {
         self.store = store
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Montserrat-Black", size: 38)!]
     }
     
-    @State private var searchFieldTxt = ""
+    
+    //MARK: - Dependencies
+    
     @ObservedObject var store: MainSceneStore_SP
+    
+    
+    //MARK: - State
+    
+    @State private var searchFieldTxt = ""
+    
+    
+    //MARK: - Body
     
     var body: some View {
         NavigationView {
@@ -25,7 +39,12 @@ struct MainSceneView: View {
                 VStack {
                     ForEach (store.state.cards.filter({ "\($0.title)".contains(searchFieldTxt.capitalized) ||
                         searchFieldTxt.isEmpty })) { card in
-                            CardView(productCard: card)
+                            NavigationLink {
+                                DetailScene_SP(store: store)
+                                } label: {
+                                    CardView(productCard: card)
+                                }
+                            .buttonStyle(PlainButtonStyle())
                         }
                         .padding(.bottom, 10)
                 }
@@ -37,14 +56,20 @@ struct MainSceneView: View {
         .searchable(text: $searchFieldTxt,
                     placement: .navigationBarDrawer(displayMode: .always))
         .navigationViewStyle(.stack)
-        
     }
 }
 
 
 
 struct CardView: View {
+    
+    //MARK: - Dependencies
+
     var productCard: ProductCard
+    
+    
+    //MARK: - Body
+
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
@@ -89,10 +114,12 @@ struct CardView: View {
 }
 
 
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainSceneView(store: MainSceneStore_SP(initialState: nil,
                                                reducer: MainSceneReducer_SP()))
+        //            .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
     }
 }
 
