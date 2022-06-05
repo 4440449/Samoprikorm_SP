@@ -12,7 +12,6 @@ import SwiftUI
 
 struct MainSceneView: View {
     
-    //MARK: - init
     init(store: Store_SP) {
         self.store = store
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Montserrat-Black", size: 38)!]
@@ -21,19 +20,15 @@ struct MainSceneView: View {
     //MARK: - Dependencies
     @ObservedObject var store: Store_SP
     
-    //MARK: - State
-    // Вынести это поле в стейт прямо в таком виде
-    @State private var searchFieldTxt = ""
-    
     //MARK: - Body
-    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
 //                    store.state.searchFieldText
-                    ForEach(store.state.cards.filter({ $0.title.contains(searchFieldTxt.capitalized) ||
-                        searchFieldTxt.isEmpty })) { card in
+                    ForEach(store.state.cards.filter({ $0.title.contains(store.state.searchFieldText.capitalized)
+                        ||
+                        store.state.searchFieldText.isEmpty })) { card in
                             NavigationLink (destination: {
                                 DetailSceneConfigurator_SP.configure()
                                     .onAppear {
@@ -51,7 +46,7 @@ struct MainSceneView: View {
             .background (Color.init(UIColor(red: 0.922, green: 0.929, blue: 0.957, alpha: 1)).ignoresSafeArea(.all, edges: .all))
             .foregroundColor(.black)
         }
-        .searchable(text: $searchFieldTxt,
+        .searchable(text: $store.state.searchFieldText,
                     placement: .navigationBarDrawer(displayMode: .always))
         .navigationViewStyle(.stack)
     }
@@ -62,12 +57,9 @@ struct MainSceneView: View {
 struct CardView: View {
     
     //MARK: - Dependencies
-    
     var productCard: ProductCard
     
-    
     //MARK: - Body
-    
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
@@ -120,19 +112,3 @@ struct ContentView_Previews: PreviewProvider {
         //            .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
     }
 }
-
-
-
-
-
-
-//                VStack {
-//                    TextField("Искать продукт", text: $searchFieldTxt)
-//                        .font(.body)
-//                        .padding([.leading, .trailing, .bottom, .top], 10)
-//                        .background(.white)
-//                        .cornerRadius(12)
-//                        .shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 0)
-//                        .padding(.init(top: 10, leading: 16, bottom: 0, trailing: 16))
-//                }
-//                .ignoresSafeArea(.keyboard, edges: .bottom)
