@@ -8,15 +8,15 @@
 import SwiftUI
 
 
-let store = MainSceneStore_SP(initialState: nil,
-                              reducer: MainSceneReducer_SP())
+let store = Store_SP(initialState: nil, reducer: Reducer_SP())
+
 
 @main
 struct Samoprikorm_SPApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainSceneView(store: store)
+            MainSceneConfigurator_SP.configure()
         }
     }
 }

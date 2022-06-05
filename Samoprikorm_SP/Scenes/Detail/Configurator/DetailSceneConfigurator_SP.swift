@@ -10,6 +10,7 @@ import SwiftUI
 
 private let webViewDelegate = DetailSceneWebViewDelegate_SP()
 
+
 struct DetailSceneConfigurator_SP: SceneConfiguratorProtocol_SP {
     
     static func configure() -> some View {

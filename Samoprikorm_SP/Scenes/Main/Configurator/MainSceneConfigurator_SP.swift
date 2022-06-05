@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct MainSceneConfigurator_SP: SceneConfiguratorProtocol_SP {
     
     static func configure() -> some View {

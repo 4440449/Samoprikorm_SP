@@ -8,14 +8,12 @@
 import SwiftUI
 
 
-
-
 struct DetailScene_SP: View {
     
-    @ObservedObject var store: MainSceneStore_SP
+    @ObservedObject var store: Store_SP
     private let webViewDelegate: DetailSceneWebViewDelegate_SP
     
-    init(store: MainSceneStore_SP,
+    init(store: Store_SP,
          webViewDelegate: DetailSceneWebViewDelegate_SP) {
         self.store = store
         self.webViewDelegate = webViewDelegate
@@ -36,9 +34,6 @@ struct DetailScene_SP: View {
 struct DetailScene_SP_Previews: PreviewProvider {
     
     static var previews: some View {
-        
         DetailSceneConfigurator_SP.configure()
-//        DetailScene_SP(store: MainSceneStore_SP(initialState: nil,
-//                                                reducer: MainSceneReducer_SP()))
     }
 }

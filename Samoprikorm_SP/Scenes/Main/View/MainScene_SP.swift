@@ -13,13 +13,13 @@ import SwiftUI
 struct MainSceneView: View {
     
     //MARK: - init
-    init(store: MainSceneStore_SP) {
+    init(store: Store_SP) {
         self.store = store
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Montserrat-Black", size: 38)!]
     }
     
     //MARK: - Dependencies
-    @ObservedObject var store: MainSceneStore_SP
+    @ObservedObject var store: Store_SP
     
     //MARK: - State
     // Вынести это поле в стейт прямо в таком виде
@@ -31,6 +31,7 @@ struct MainSceneView: View {
         NavigationView {
             ScrollView {
                 VStack {
+//                    store.state.searchFieldText
                     ForEach(store.state.cards.filter({ $0.title.contains(searchFieldTxt.capitalized) ||
                         searchFieldTxt.isEmpty })) { card in
                             NavigationLink (destination: {
@@ -41,10 +42,6 @@ struct MainSceneView: View {
                             }, label: {
                                 CardView(productCard: card)
                             })
-//                                .onTapGesture {
-//                                    print("onTapGesture is activated")
-//                                    store.dispatch(action: .select(card: card))
-//                                }
                                 .buttonStyle(PlainButtonStyle())
                         }
                         .padding(.bottom, 10)
@@ -118,8 +115,8 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainSceneView(store: MainSceneStore_SP(initialState: nil,
-                                               reducer: MainSceneReducer_SP()))
+        MainSceneView(store: Store_SP(initialState: nil,
+                                               reducer: Reducer_SP()))
         //            .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
     }
 }

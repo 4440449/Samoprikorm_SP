@@ -1,5 +1,5 @@
 //
-//  MainSceneState_SP.swift
+//  State_SP.swift
 //  Samoprikorm_SP
 //
 //  Created by Maxim on 23.02.2022.
@@ -8,9 +8,9 @@
 import Foundation
 
 
-struct MainSceneState_SP {
+struct State_SP {
     var searchFieldText = ""
-    var selectedCard: ProductCard? { didSet { print(selectedCard ?? "nil") } }
+    var selectedCard: ProductCard?
     var cards = [
         ProductCard (id: "1", title: "Грейпфрут", imagePath: "grape", allergen: "Нет", age: "6+", rating: "🙂"),
         ProductCard (id: "2", title: "Банан", imagePath: "banana", allergen: "Нет", age: "6+", rating: "🤩"),
