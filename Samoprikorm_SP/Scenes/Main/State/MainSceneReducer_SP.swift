@@ -14,6 +14,11 @@ struct MainSceneReducer_SP {
             
         case .initialLoading:
             return MainSceneState_SP() // API REQUST
+            
+        case .select(let card):
+            var newState = state
+            newState.selectedCard = card
+            return newState
         }
     }
 }

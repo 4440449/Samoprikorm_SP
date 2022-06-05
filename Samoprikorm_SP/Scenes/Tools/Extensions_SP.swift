@@ -5,7 +5,6 @@
 //  Created by Maxim on 03.06.2022.
 //
 
-import Foundation
 import SwiftUI
 
 

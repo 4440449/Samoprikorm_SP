@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9448E9C2284CB2AB0024A7BC /* DetailSceneWebView_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9448E9C1284CB2AB0024A7BC /* DetailSceneWebView_SP.swift */; };
+		9448E9C5284CB3B80024A7BC /* DetailSceneWebViewDelegate_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9448E9C4284CB3B80024A7BC /* DetailSceneWebViewDelegate_SP.swift */; };
+		9448E9C8284CBDDE0024A7BC /* SceneConfigurator_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9448E9C7284CBDDE0024A7BC /* SceneConfigurator_SP.swift */; };
+		9448E9CB284CCBEC0024A7BC /* DetailSceneConfigurator_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9448E9CA284CCBEC0024A7BC /* DetailSceneConfigurator_SP.swift */; };
+		9448E9CE284CCC620024A7BC /* MainSceneConfigurator_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9448E9CD284CCC620024A7BC /* MainSceneConfigurator_SP.swift */; };
 		944FB72A284A43EE00E5B382 /* Extensions_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944FB729284A43EE00E5B382 /* Extensions_SP.swift */; };
 		944FB72D284A471900E5B382 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 944FB72C284A471900E5B382 /* Montserrat-Thin.ttf */; };
 		944FB732284A48A200E5B382 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 944FB731284A473500E5B382 /* Montserrat-ExtraBold.ttf */; };
@@ -26,6 +31,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9448E9C1284CB2AB0024A7BC /* DetailSceneWebView_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSceneWebView_SP.swift; sourceTree = "<group>"; };
+		9448E9C4284CB3B80024A7BC /* DetailSceneWebViewDelegate_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSceneWebViewDelegate_SP.swift; sourceTree = "<group>"; };
+		9448E9C7284CBDDE0024A7BC /* SceneConfigurator_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneConfigurator_SP.swift; sourceTree = "<group>"; };
+		9448E9CA284CCBEC0024A7BC /* DetailSceneConfigurator_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSceneConfigurator_SP.swift; sourceTree = "<group>"; };
+		9448E9CD284CCC620024A7BC /* MainSceneConfigurator_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSceneConfigurator_SP.swift; sourceTree = "<group>"; };
 		944FB729284A43EE00E5B382 /* Extensions_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions_SP.swift; sourceTree = "<group>"; };
 		944FB72C284A471900E5B382 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
 		944FB72E284A472400E5B382 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -57,9 +67,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9448E9C3284CB2B00024A7BC /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				9448E9C1284CB2AB0024A7BC /* DetailSceneWebView_SP.swift */,
+				9448E9C6284CB3EB0024A7BC /* Delegate */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		9448E9C6284CB3EB0024A7BC /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				9448E9C4284CB3B80024A7BC /* DetailSceneWebViewDelegate_SP.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		9448E9C9284CBDF00024A7BC /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				9448E9C7284CBDDE0024A7BC /* SceneConfigurator_SP.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		9448E9CC284CCBF10024A7BC /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				9448E9CA284CCBEC0024A7BC /* DetailSceneConfigurator_SP.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		9448E9CF284CCC670024A7BC /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				9448E9CD284CCC620024A7BC /* MainSceneConfigurator_SP.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
 		944FB73A284A89F600E5B382 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				9448E9CC284CCBF10024A7BC /* Configurator */,
 				94D349FE284B8F2600DDE363 /* View */,
 			);
 			path = Detail;
@@ -118,6 +170,7 @@
 		9464929727C5681700388E37 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				9448E9CF284CCC670024A7BC /* Configurator */,
 				9464929627C5680F00388E37 /* View */,
 				9464929F27C5697E00388E37 /* Store */,
 			);
@@ -127,6 +180,7 @@
 		9464929827C5682500388E37 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9448E9C9284CBDF00024A7BC /* Configurator */,
 				9464929727C5681700388E37 /* Main */,
 				944FB73A284A89F600E5B382 /* Detail */,
 				94D349FF284B900000DDE363 /* Tools */,
@@ -199,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				944FB738284A89EE00E5B382 /* DetailScene_SP.swift */,
+				9448E9C3284CB2B00024A7BC /* WebView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,10 +341,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9448E9C8284CBDDE0024A7BC /* SceneConfigurator_SP.swift in Sources */,
 				9464928B27C5524F00388E37 /* MainScene_SP.swift in Sources */,
 				94768A792847BE7E00980844 /* MainSceneReducer_SP.swift in Sources */,
 				944FB739284A89EE00E5B382 /* DetailScene_SP.swift in Sources */,
+				9448E9CB284CCBEC0024A7BC /* DetailSceneConfigurator_SP.swift in Sources */,
+				9448E9C5284CB3B80024A7BC /* DetailSceneWebViewDelegate_SP.swift in Sources */,
 				9464928927C5524F00388E37 /* Samoprikorm_SPApp.swift in Sources */,
+				9448E9CE284CCC620024A7BC /* MainSceneConfigurator_SP.swift in Sources */,
+				9448E9C2284CB2AB0024A7BC /* DetailSceneWebView_SP.swift in Sources */,
 				944FB72A284A43EE00E5B382 /* Extensions_SP.swift in Sources */,
 				9464929B27C568EA00388E37 /* ProductCard.swift in Sources */,
 				946492A127C5935D00388E37 /* MainSceneState_SP.swift in Sources */,

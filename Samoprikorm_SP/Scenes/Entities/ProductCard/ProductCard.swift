@@ -9,7 +9,7 @@ import Foundation
 
 
 struct ProductCard: Identifiable {
-    let id: UUID
+    let id: String
     let title: String
     let imagePath: String
     let allergen: String

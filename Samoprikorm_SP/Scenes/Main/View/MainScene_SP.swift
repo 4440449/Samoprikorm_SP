@@ -12,24 +12,18 @@ import SwiftUI
 
 struct MainSceneView: View {
     
-    
     //MARK: - init
-    
     init(store: MainSceneStore_SP) {
         self.store = store
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Montserrat-Black", size: 38)!]
     }
     
-    
     //MARK: - Dependencies
-    
     @ObservedObject var store: MainSceneStore_SP
     
-    
     //MARK: - State
-    
+    // Вынести это поле в стейт прямо в таком виде
     @State private var searchFieldTxt = ""
-    
     
     //MARK: - Body
     
@@ -37,14 +31,21 @@ struct MainSceneView: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    ForEach (store.state.cards.filter({ "\($0.title)".contains(searchFieldTxt.capitalized) ||
+                    ForEach(store.state.cards.filter({ $0.title.contains(searchFieldTxt.capitalized) ||
                         searchFieldTxt.isEmpty })) { card in
-                            NavigationLink {
-                                DetailScene_SP(store: store)
-                                } label: {
-                                    CardView(productCard: card)
-                                }
-                            .buttonStyle(PlainButtonStyle())
+                            NavigationLink (destination: {
+                                DetailSceneConfigurator_SP.configure()
+                                    .onAppear {
+                                        store.dispatch(action: .select(card: card))
+                                    }
+                            }, label: {
+                                CardView(productCard: card)
+                            })
+//                                .onTapGesture {
+//                                    print("onTapGesture is activated")
+//                                    store.dispatch(action: .select(card: card))
+//                                }
+                                .buttonStyle(PlainButtonStyle())
                         }
                         .padding(.bottom, 10)
                 }
@@ -64,12 +65,12 @@ struct MainSceneView: View {
 struct CardView: View {
     
     //MARK: - Dependencies
-
+    
     var productCard: ProductCard
     
     
     //MARK: - Body
-
+    
     var body: some View {
         VStack {
             VStack(alignment: .leading) {

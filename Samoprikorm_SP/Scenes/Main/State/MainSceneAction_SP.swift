@@ -8,4 +8,5 @@
 
 enum MainSceneAction_SP {
     case initialLoading
+    case select(card: ProductCard)
 }
