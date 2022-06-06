@@ -6,9 +6,8 @@
 //
 //
 
-
 import SwiftUI
-//import Combine
+
 
 struct MainSceneView: View {
     
@@ -35,7 +34,7 @@ struct MainSceneView: View {
                                         store.dispatch(action: .select(card: card))
                                     }
                             }, label: {
-                                CardView(productCard: card)
+                                CardView(product: card)
                             })
                                 .buttonStyle(PlainButtonStyle())
                         }
@@ -57,7 +56,11 @@ struct MainSceneView: View {
 struct CardView: View {
     
     //MARK: - Dependencies
-    var productCard: ProductCard
+    private let productCard: ProductCard
+    
+    init(product: ProductCard) {
+        self.productCard = product
+    }
     
     //MARK: - Body
     var body: some View {
