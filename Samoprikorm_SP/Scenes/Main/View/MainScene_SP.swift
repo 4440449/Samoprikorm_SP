@@ -18,13 +18,13 @@ struct MainSceneView: View {
     
     //MARK: - Dependencies
     @ObservedObject var store: Store_SP
+    @State private var txtField = ""
     
     //MARK: - Body
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
-//                    store.state.searchFieldText
                     ForEach(store.state.cards.filter({ $0.title.contains(store.state.searchFieldText.capitalized)
                         ||
                         store.state.searchFieldText.isEmpty })) { card in
@@ -45,9 +45,13 @@ struct MainSceneView: View {
             .background (Color.init(UIColor(red: 0.922, green: 0.929, blue: 0.957, alpha: 1)).ignoresSafeArea(.all, edges: .all))
             .foregroundColor(.black)
         }
-        .searchable(text: $store.state.searchFieldText,
-                    placement: .navigationBarDrawer(displayMode: .always))
         .navigationViewStyle(.stack)
+        .searchable(text: $txtField,
+                    placement: .navigationBarDrawer(displayMode: .always))
+        .onChange(of: txtField, perform: { newTxt in
+            store.dispatch(action: .search(text: newTxt))
+        })
+        
     }
 }
 

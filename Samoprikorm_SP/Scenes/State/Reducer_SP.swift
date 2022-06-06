@@ -14,6 +14,11 @@ struct Reducer_SP {
         case .initialLoading:
             return State_SP() // API REQUST
             
+        case .search(text: let text):
+            var newState = state
+            newState.searchFieldText = text
+            return newState
+            
         case .select(let card):
             var newState = state
             newState.selectedCard = card

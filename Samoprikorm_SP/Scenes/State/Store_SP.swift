@@ -12,7 +12,7 @@ final class Store_SP: ObservableObject {
     
     //MARK: - Prop
     
-    @Published var state: State_SP
+    @Published private (set) var state: State_SP
     private let reducer: Reducer_SP
     
     

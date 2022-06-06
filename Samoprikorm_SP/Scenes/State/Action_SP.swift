@@ -8,5 +8,6 @@
 
 enum Action_SP {
     case initialLoading
+    case search(text: String)
     case select(card: ProductCard)
 }
