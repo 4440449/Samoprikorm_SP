@@ -11,8 +11,8 @@ import SwiftUI
 private let webViewDelegate = DetailSceneWebViewDelegate_SP()
 
 
-struct DetailSceneConfigurator_SP: SceneConfiguratorProtocol_SP {
-    
+struct DetailSceneConfigurator_SP {
+    //Передавать стор и делегат снаружи
     static func configure() -> some View {
         return DetailScene_SP(store: store,
                               webViewDelegate: webViewDelegate)

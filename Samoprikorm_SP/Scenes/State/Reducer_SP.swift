@@ -9,20 +9,19 @@
 struct Reducer_SP {
     
     func execute(action: Action_SP, state: State_SP) -> State_SP {
+        var newState = state
         switch action {
             
-        case .initialLoading:
-            return State_SP() // API REQUST
+        case .initialLoading(let params):
+            newState.cards = params.cards
             
-        case .search(text: let text):
-            var newState = state
-            newState.searchFieldText = text
-            return newState
+        case .search(let params):
+            newState.searchFieldText = params.text
             
-        case .select(let card):
-            var newState = state
-            newState.selectedCard = card
-            return newState
+        case .select(let params):
+            newState.selectedCard = params.card
         }
+        return newState
     }
+    
 }

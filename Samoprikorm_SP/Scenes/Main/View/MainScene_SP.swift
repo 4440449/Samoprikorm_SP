@@ -11,13 +11,18 @@ import SwiftUI
 
 struct MainSceneView: View {
     
-    init(store: Store_SP) {
+    init(store: Store_SP,
+         actionPool: ActionPool_SP) {
         self.store = store
+        self.actionPool = actionPool
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Montserrat-Black", size: 38)!]
     }
     
     //MARK: - Dependencies
+    @ObservedObject var actionPool: ActionPool_SP
     @ObservedObject var store: Store_SP
+    
+    //MARK: - State
     @State private var txtField = ""
     
     //MARK: - Body
@@ -31,7 +36,7 @@ struct MainSceneView: View {
                             NavigationLink (destination: {
                                 DetailSceneConfigurator_SP.configure()
                                     .onAppear {
-                                        store.dispatch(action: .select(card: card))
+                                        actionPool.dispatch(params: .select(card))
                                     }
                             }, label: {
                                 CardView(product: card)
@@ -48,10 +53,10 @@ struct MainSceneView: View {
         .navigationViewStyle(.stack)
         .searchable(text: $txtField,
                     placement: .navigationBarDrawer(displayMode: .always))
-        .onChange(of: txtField, perform: { newTxt in
-            store.dispatch(action: .search(text: newTxt))
+        .onChange(of: txtField,
+                  perform: { newTxt in
+            actionPool.dispatch(params: .search(newTxt))
         })
-        
     }
 }
 
@@ -60,9 +65,9 @@ struct MainSceneView: View {
 struct CardView: View {
     
     //MARK: - Dependencies
-    private let productCard: ProductCard
+    private let productCard: ProductCard_SP
     
-    init(product: ProductCard) {
+    init(product: ProductCard_SP) {
         self.productCard = product
     }
     
@@ -114,8 +119,13 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainSceneView(store: Store_SP(initialState: nil,
-                                               reducer: Reducer_SP()))
+        MainSceneConfigurator_SP.configure(store: Store_SP(initialState: nil,
+                                                           reducer: Reducer_SP()),
+                                           actionPool: ActionPool_SP(store: store,
+                                                                     networkGateway: NetworkGateway_SP()))
+//        MainSceneView(store: Store_SP(initialState: nil,
+//                                      reducer: Reducer_SP()),
+//                                      actionPool: <#ActionPool#>)
         //            .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
     }
 }

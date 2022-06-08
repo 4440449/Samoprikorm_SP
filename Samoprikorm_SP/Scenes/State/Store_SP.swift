@@ -22,6 +22,7 @@ final class Store_SP: ObservableObject {
          reducer: Reducer_SP) {
         self.state = initialState ?? State_SP()
         self.reducer = reducer
+        print("INIT Store_SP")
     }
     
     
@@ -31,4 +32,8 @@ final class Store_SP: ObservableObject {
         state = reducer.execute(action: action, state: state)
     }
     
+    
+    deinit {
+        print("DEINIT Store_SP")
+    }
 }

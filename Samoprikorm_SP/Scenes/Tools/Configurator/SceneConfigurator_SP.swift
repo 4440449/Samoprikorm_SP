@@ -8,9 +8,9 @@
 import SwiftUI
 
 
-protocol SceneConfiguratorProtocol_SP {
-    
-    associatedtype SomeView: View
-    static func configure() -> SomeView
-}
+//protocol SceneConfiguratorProtocol_SP {
+//
+//    associatedtype SomeView: View
+//    static func configure() -> SomeView
+//}
 

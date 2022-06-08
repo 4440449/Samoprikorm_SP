@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct ProductCard: Identifiable {
+struct ProductCard_SP: Identifiable {
     let id: String
     let title: String
     let imagePath: String
