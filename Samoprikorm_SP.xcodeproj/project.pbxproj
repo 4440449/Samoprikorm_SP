@@ -28,6 +28,11 @@
 		946492A427C5967500388E37 /* Store_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946492A327C5967500388E37 /* Store_SP.swift */; };
 		94768A792847BE7E00980844 /* Reducer_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94768A782847BE7E00980844 /* Reducer_SP.swift */; };
 		94768A7C2847BEDA00980844 /* ActionParams_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94768A7B2847BEDA00980844 /* ActionParams_SP.swift */; };
+		94A74EE128521CEA00C8777D /* ProductCardNetworkEntity_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A74EE028521CEA00C8777D /* ProductCardNetworkEntity_SP.swift */; };
+		94ACA1182852097B00E971E1 /* BabyNet in Frameworks */ = {isa = PBXBuildFile; productRef = 94ACA1172852097B00E971E1 /* BabyNet */; };
+		94ACA11A28520A1A00E971E1 /* ProductCardsRepository_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ACA11928520A1A00E971E1 /* ProductCardsRepository_SP.swift */; };
+		94ACA11F28520A7C00E971E1 /* ProductCardNetworkRepository_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ACA11E28520A7C00E971E1 /* ProductCardNetworkRepository_SP.swift */; };
+		94ACA12228520B0400E971E1 /* ProductCardGateway_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ACA12128520B0400E971E1 /* ProductCardGateway_SP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +58,10 @@
 		946492A327C5967500388E37 /* Store_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store_SP.swift; sourceTree = "<group>"; };
 		94768A782847BE7E00980844 /* Reducer_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer_SP.swift; sourceTree = "<group>"; };
 		94768A7B2847BEDA00980844 /* ActionParams_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionParams_SP.swift; sourceTree = "<group>"; };
+		94A74EE028521CEA00C8777D /* ProductCardNetworkEntity_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardNetworkEntity_SP.swift; sourceTree = "<group>"; };
+		94ACA11928520A1A00E971E1 /* ProductCardsRepository_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardsRepository_SP.swift; sourceTree = "<group>"; };
+		94ACA11E28520A7C00E971E1 /* ProductCardNetworkRepository_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardNetworkRepository_SP.swift; sourceTree = "<group>"; };
+		94ACA12128520B0400E971E1 /* ProductCardGateway_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardGateway_SP.swift; sourceTree = "<group>"; };
 		94D349FD284B780000DDE363 /* Samoprikorm-SP-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Samoprikorm-SP-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -61,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94ACA1182852097B00E971E1 /* BabyNet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +149,7 @@
 				94D349FD284B780000DDE363 /* Samoprikorm-SP-Info.plist */,
 				9464928827C5524F00388E37 /* Samoprikorm_SPApp.swift */,
 				9464929C27C5695000388E37 /* Domain */,
+				94ACA11D28520A5400E971E1 /* Data */,
 				9464929827C5682500388E37 /* Scenes */,
 				9464928C27C5525200388E37 /* Assets.xcassets */,
 				944FB731284A473500E5B382 /* Montserrat-ExtraBold.ttf */,
@@ -216,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				9464929A27C568EA00388E37 /* ProductCard_SP.swift */,
+				94ACA12328520B8600E971E1 /* Gateway */,
 			);
 			path = ProductCard;
 			sourceTree = "<group>";
@@ -246,6 +258,56 @@
 				94768A7B2847BEDA00980844 /* ActionParams_SP.swift */,
 			);
 			name = Action;
+			sourceTree = "<group>";
+		};
+		94A74EE228521CF100C8777D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				94A74EE028521CEA00C8777D /* ProductCardNetworkEntity_SP.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		94ACA11B28520A1D00E971E1 /* ProductCard */ = {
+			isa = PBXGroup;
+			children = (
+				94ACA11928520A1A00E971E1 /* ProductCardsRepository_SP.swift */,
+				94ACA12028520A8000E971E1 /* Network */,
+			);
+			path = ProductCard;
+			sourceTree = "<group>";
+		};
+		94ACA11C28520A4000E971E1 /* Gateways */ = {
+			isa = PBXGroup;
+			children = (
+				94ACA11B28520A1D00E971E1 /* ProductCard */,
+			);
+			path = Gateways;
+			sourceTree = "<group>";
+		};
+		94ACA11D28520A5400E971E1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				94ACA11C28520A4000E971E1 /* Gateways */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		94ACA12028520A8000E971E1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				94ACA11E28520A7C00E971E1 /* ProductCardNetworkRepository_SP.swift */,
+				94A74EE228521CF100C8777D /* Entity */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		94ACA12328520B8600E971E1 /* Gateway */ = {
+			isa = PBXGroup;
+			children = (
+				94ACA12128520B0400E971E1 /* ProductCardGateway_SP.swift */,
+			);
+			path = Gateway;
 			sourceTree = "<group>";
 		};
 		94D349FE284B8F2600DDE363 /* View */ = {
@@ -282,6 +344,9 @@
 			dependencies = (
 			);
 			name = Samoprikorm_SP;
+			packageProductDependencies = (
+				94ACA1172852097B00E971E1 /* BabyNet */,
+			);
 			productName = Samoprikorm_SP;
 			productReference = 9464928527C5524F00388E37 /* Samoprikorm_SP.app */;
 			productType = "com.apple.product-type.application";
@@ -310,6 +375,9 @@
 				Base,
 			);
 			mainGroup = 9464927C27C5524F00388E37;
+			packageReferences = (
+				94ACA1162852097B00E971E1 /* XCRemoteSwiftPackageReference "BabyNet" */,
+			);
 			productRefGroup = 9464928627C5524F00388E37 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -342,14 +410,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				9448E9C8284CBDDE0024A7BC /* SceneConfigurator_SP.swift in Sources */,
+				94ACA12228520B0400E971E1 /* ProductCardGateway_SP.swift in Sources */,
 				9464928B27C5524F00388E37 /* MainScene_SP.swift in Sources */,
 				94768A792847BE7E00980844 /* Reducer_SP.swift in Sources */,
 				944FB739284A89EE00E5B382 /* DetailScene_SP.swift in Sources */,
+				94ACA11A28520A1A00E971E1 /* ProductCardsRepository_SP.swift in Sources */,
 				9448E9CB284CCBEC0024A7BC /* DetailSceneConfigurator_SP.swift in Sources */,
 				9448E9C5284CB3B80024A7BC /* DetailSceneWebViewDelegate_SP.swift in Sources */,
+				94ACA11F28520A7C00E971E1 /* ProductCardNetworkRepository_SP.swift in Sources */,
 				9464928927C5524F00388E37 /* Samoprikorm_SPApp.swift in Sources */,
 				9448E9CE284CCC620024A7BC /* MainSceneConfigurator_SP.swift in Sources */,
 				9448E9C2284CB2AB0024A7BC /* DetailSceneWebView_SP.swift in Sources */,
+				94A74EE128521CEA00C8777D /* ProductCardNetworkEntity_SP.swift in Sources */,
 				944FB72A284A43EE00E5B382 /* Extensions_SP.swift in Sources */,
 				9464929B27C568EA00388E37 /* ProductCard_SP.swift in Sources */,
 				946492A127C5935D00388E37 /* State_SP.swift in Sources */,
@@ -563,6 +635,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		94ACA1162852097B00E971E1 /* XCRemoteSwiftPackageReference "BabyNet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/4440449/BabyNet";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		94ACA1172852097B00E971E1 /* BabyNet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94ACA1162852097B00E971E1 /* XCRemoteSwiftPackageReference "BabyNet" */;
+			productName = BabyNet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9464927D27C5524F00388E37 /* Project object */;
 }

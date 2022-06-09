@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import BabyNet
 
 let reducer = Reducer_SP()
 let store = Store_SP(initialState: nil, reducer: reducer)
-let networkGateway = NetworkGateway_SP()
-let actionPool = ActionPool_SP(store: store, networkGateway: networkGateway)
+let client = BabyNetRepository()
+let network = ProductCardsNetworkRepository_SP(client: client)
+let repository = ProductCardsRepository_SP(network: network)
+let actionPool = ActionPool_SP(store: store, productCardRepository: repository)
 
 
 @main

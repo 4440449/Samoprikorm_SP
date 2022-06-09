@@ -23,6 +23,7 @@ enum Action_SP {
     case initialLoading(_ action: InitialLoading_SP)
     case search(_ action: Search_SP)
     case select(_ action: Select_SP)
+    case showError(_ action: Error_SP)
     
     struct InitialLoading_SP {
         let cards: [ProductCard_SP]
@@ -35,6 +36,10 @@ enum Action_SP {
     struct Select_SP {
         let card: ProductCard_SP
     }
+    
+    struct Error_SP {
+        let description: String
+    }
 }
 
 
@@ -44,12 +49,12 @@ enum Action_SP {
 final class ActionPool_SP: ObservableObject {
 
     private let store: Store_SP
-    private let networkGateway: NetworkGateway_SP
+    private let productCardRepository: ProductCardGateway_SP
     
     init(store: Store_SP,
-        networkGateway: NetworkGateway_SP) {
+         productCardRepository: ProductCardGateway_SP) {
         self.store = store
-        self.networkGateway = networkGateway
+        self.productCardRepository = productCardRepository
         print("INIT ActionPool_SP")
     }
     
@@ -57,9 +62,16 @@ final class ActionPool_SP: ObservableObject {
         switch params {
             
         case .initialLoading:
-            //await async task
-            //store.dispatch(action)
-            print("")
+            let _ = Task {
+                do {
+                    let cards = try await productCardRepository.fetch()
+                    let successAction = Action_SP.initialLoading(.init(cards: cards))
+                    store.dispatch(action: successAction)
+                } catch let error {
+                    let errAction = Action_SP.showError(.init(description: error.localizedDescription))
+                    store.dispatch(action: errAction)
+                }
+            }
             
         case .search(let text):
             let action = Action_SP.search(.init(text: text))
@@ -75,8 +87,3 @@ final class ActionPool_SP: ObservableObject {
         print("DEINIT ActionPool_SP")
     }
 }
-
-
-final class NetworkGateway_SP { }
-
-

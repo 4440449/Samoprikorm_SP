@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import BabyNet
 
 
 struct MainSceneView: View {
@@ -34,7 +35,7 @@ struct MainSceneView: View {
                         ||
                         store.state.searchFieldText.isEmpty })) { card in
                             NavigationLink (destination: {
-                                DetailSceneConfigurator_SP.configure()
+                                DetailSceneConfigurator_SP.configure(store: store)
                                     .onAppear {
                                         actionPool.dispatch(params: .select(card))
                                     }
@@ -122,7 +123,7 @@ struct ContentView_Previews: PreviewProvider {
         MainSceneConfigurator_SP.configure(store: Store_SP(initialState: nil,
                                                            reducer: Reducer_SP()),
                                            actionPool: ActionPool_SP(store: store,
-                                                                     networkGateway: NetworkGateway_SP()))
+                                                                     productCardRepository: ProductCardsRepository_SP(network: ProductCardsNetworkRepository_SP(client: BabyNetRepository()))))
 //        MainSceneView(store: Store_SP(initialState: nil,
 //                                      reducer: Reducer_SP()),
 //                                      actionPool: <#ActionPool#>)

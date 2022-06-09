@@ -20,6 +20,9 @@ struct Reducer_SP {
             
         case .select(let params):
             newState.selectedCard = params.card
+            
+        case .showError(let params):
+            newState.errorMessage = params.description
         }
         return newState
     }
