@@ -7,11 +7,11 @@
 
 import SwiftUI
 
+fileprivate let webViewDelegate = DetailSceneWebViewDelegate_SP()
 
 struct DetailSceneConfigurator_SP {
     
     static func configure(store: Store_SP) -> some View {
-        let webViewDelegate = DetailSceneWebViewDelegate_SP()
         return DetailScene_SP(store: store,
                               webViewDelegate: webViewDelegate)
     }

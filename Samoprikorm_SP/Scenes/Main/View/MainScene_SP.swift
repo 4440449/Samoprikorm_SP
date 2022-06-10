@@ -17,6 +17,8 @@ struct MainSceneView: View {
         self.store = store
         self.actionPool = actionPool
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Montserrat-Black", size: 38)!]
+        self.actionPool.dispatch(params: .initialLoading)
+        print("MainSceneView INIT")
     }
     
     //MARK: - Dependencies
@@ -58,6 +60,7 @@ struct MainSceneView: View {
                   perform: { newTxt in
             actionPool.dispatch(params: .search(newTxt))
         })
+       
     }
 }
 
@@ -120,10 +123,8 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainSceneConfigurator_SP.configure(store: Store_SP(initialState: nil,
-                                                           reducer: Reducer_SP()),
-                                           actionPool: ActionPool_SP(store: store,
-                                                                     productCardRepository: ProductCardsRepository_SP(network: ProductCardsNetworkRepository_SP(client: BabyNetRepository()))))
+        MainSceneConfigurator_SP.configure(store: store,
+                                           actionPool: actionPool)
 //        MainSceneView(store: Store_SP(initialState: nil,
 //                                      reducer: Reducer_SP()),
 //                                      actionPool: <#ActionPool#>)

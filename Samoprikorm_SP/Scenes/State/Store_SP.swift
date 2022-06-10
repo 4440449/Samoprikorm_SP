@@ -29,7 +29,10 @@ final class Store_SP: ObservableObject {
     //MARK: - Interface
     
     func dispatch(action: Action_SP) {
-        state = reducer.execute(action: action, state: state)
+        DispatchQueue.main.async {
+            self.state = self.reducer.execute(action: action, state: self.state)
+        }
+        
     }
     
     

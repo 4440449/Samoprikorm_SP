@@ -6,11 +6,13 @@
 //
 
 import BabyNet
+import Foundation
 
 
-struct ProductCardNetworkEntity_SP: Decodable, DomainRepresentable {
+public struct ProductCardNetworkEntity_SP: Decodable, DomainRepresentable {
     
     let id: String
+    let createdAt: String
     let title: String
     let imagePath: String
     let allergen: String
@@ -19,6 +21,7 @@ struct ProductCardNetworkEntity_SP: Decodable, DomainRepresentable {
     
     enum CodingKeys: CodingKey {
         case id
+        case created_at
         case title
         case imagePath
         case allergen
@@ -26,19 +29,19 @@ struct ProductCardNetworkEntity_SP: Decodable, DomainRepresentable {
         case rating
     }
     
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decode(String.self, forKey: .id)
-        self.title = try container.decode(String.self, forKey: .title)
-        self.imagePath = try container.decode(String.self, forKey: .imagePath)
-        self.allergen = try container.decode(String.self, forKey: .allergen)
-        self.age = try container.decode(String.self, forKey: .age)
-        self.rating = try container.decode(String.self, forKey: .rating)
+    public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            self.id = try container.decode(String.self, forKey: .id)
+            self.createdAt = try container.decode(String.self, forKey: .created_at)
+            self.title = try container.decode(String.self, forKey: .title)
+            self.imagePath = try container.decode(String.self, forKey: .imagePath)
+            self.allergen = try container.decode(String.self, forKey: .allergen)
+            self.age = try container.decode(String.self, forKey: .age)
+            self.rating = try container.decode(String.self, forKey: .rating)
     }
     
 //     DomainConvertable
-   
-       func parseToDomain() throws -> ProductCard_SP {
+       public func parseToDomain() throws -> ProductCard_SP {
            return .init(id: self.id,
                         title: self.title,
                         imagePath: self.imagePath,
@@ -46,5 +49,16 @@ struct ProductCardNetworkEntity_SP: Decodable, DomainRepresentable {
                         age: self.age,
                         rating: self.rating)
        }
-    
+}
+
+
+extension Array: DomainRepresentable where Element == ProductCardNetworkEntity_SP {
+
+    public func parseToDomain() throws -> [ProductCard_SP] {
+         var domainEntityArr = [ProductCard_SP]()
+         try self.forEach { networkEntity in
+             domainEntityArr.append(try networkEntity.parseToDomain())
+         }
+        return domainEntityArr
+    }
 }

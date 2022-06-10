@@ -8,8 +8,8 @@
 import Foundation
 
 
-struct ProductCard_SP: Identifiable {
-    let id: String
+public struct ProductCard_SP: Identifiable {
+    public let id: String
     let title: String
     let imagePath: String
     let allergen: String
