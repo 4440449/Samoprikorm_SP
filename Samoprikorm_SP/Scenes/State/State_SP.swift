@@ -11,6 +11,7 @@ struct State_SP {
     var selectedCard: ProductCard_SP?
     var cards = [ProductCard_SP]()
     var errorMessage = ""
+    var isLoading = false
 }
 
 

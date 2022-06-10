@@ -24,6 +24,7 @@ enum Action_SP {
     case search(_ action: Search_SP)
     case select(_ action: Select_SP)
     case showError(_ action: Error_SP)
+    case isLoading(_ action: IsLoading_SP)
     
     struct InitialLoading_SP {
         let cards: [ProductCard_SP]
@@ -39,6 +40,9 @@ enum Action_SP {
     
     struct Error_SP {
         let description: String
+    }
+    struct IsLoading_SP {
+        let status: Bool
     }
 }
 
@@ -62,6 +66,8 @@ final class ActionPool_SP: ObservableObject {
         switch params {
             
         case .initialLoading:
+            let isloadingAction = Action_SP.isLoading(.init(status: true))
+            store.dispatch(action: isloadingAction)
             let _ = Task {
                 do {
                     let cards = try await productCardRepository.fetch()
@@ -71,6 +77,8 @@ final class ActionPool_SP: ObservableObject {
                     let errAction = Action_SP.showError(.init(description: error.localizedDescription))
                     store.dispatch(action: errAction)
                 }
+                let isloadingAction = Action_SP.isLoading(.init(status: false))
+                store.dispatch(action: isloadingAction)
             }
             
         case .search(let text):

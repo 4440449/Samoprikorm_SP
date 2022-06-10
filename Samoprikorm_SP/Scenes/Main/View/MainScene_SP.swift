@@ -17,6 +17,7 @@ struct MainSceneView: View {
         self.store = store
         self.actionPool = actionPool
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Montserrat-Black", size: 38)!]
+        UIScrollView.appearance().bounces = true
         self.actionPool.dispatch(params: .initialLoading)
         print("MainSceneView INIT")
     }
@@ -30,37 +31,44 @@ struct MainSceneView: View {
     
     //MARK: - Body
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack {
-                    ForEach(store.state.cards.filter({ $0.title.contains(store.state.searchFieldText.capitalized)
-                        ||
-                        store.state.searchFieldText.isEmpty })) { card in
-                            NavigationLink (destination: {
-                                DetailSceneConfigurator_SP.configure(store: store)
-                                    .onAppear {
-                                        actionPool.dispatch(params: .select(card))
-                                    }
-                            }, label: {
-                                CardView(product: card)
-                            })
-                                .buttonStyle(PlainButtonStyle())
-                        }
-                        .padding(.bottom, 10)
+        ZStack {
+            NavigationView {
+                ZStack {
+                    Color.init(UIColor(red: 0.922, green: 0.929, blue: 0.957, alpha: 1)).ignoresSafeArea(.all, edges: .all)
+                    ScrollView {
+                        ForEach(store.state.cards.filter({ $0.title.contains(store.state.searchFieldText.capitalized)
+                            ||
+                            store.state.searchFieldText.isEmpty })) { card in
+                                NavigationLink (destination: {
+                                    DetailSceneConfigurator_SP.configure(store: store)
+                                        .onAppear {
+                                            actionPool.dispatch(params: .select(card))
+                                        }
+                                }, label: {
+                                    CardView(product: card)
+                                })
+                                    .buttonStyle(PlainButtonStyle())
+                            }
+                            .padding(.bottom, 10)
+                    }
+                    .navigationTitle("Продукты")
+                    //            .background (Color.init(UIColor(red: 0.922, green: 0.929, blue: 0.957, alpha: 1)).ignoresSafeArea(.all, edges: .all))
+                    .foregroundColor(.black)
                 }
             }
-            .navigationTitle("Продукты")
-            .background (Color.init(UIColor(red: 0.922, green: 0.929, blue: 0.957, alpha: 1)).ignoresSafeArea(.all, edges: .all))
-            .foregroundColor(.black)
+            .navigationViewStyle(.stack)
+            .searchable(text: $txtField,
+                        placement: .navigationBarDrawer(displayMode: .always))
+            .onChange(of: txtField,
+                      perform: { newTxt in
+                actionPool.dispatch(params: .search(newTxt))
+            })
+            if store.state.isLoading {
+                ProgressView()
+                    .progressViewStyle(.circular)
+                    .scaleEffect(1.3)
+            }
         }
-        .navigationViewStyle(.stack)
-        .searchable(text: $txtField,
-                    placement: .navigationBarDrawer(displayMode: .always))
-        .onChange(of: txtField,
-                  perform: { newTxt in
-            actionPool.dispatch(params: .search(newTxt))
-        })
-       
     }
 }
 
@@ -123,11 +131,11 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainSceneConfigurator_SP.configure(store: store,
+        MainSceneConfigurator_SP.configure(store: storeGlobal,
                                            actionPool: actionPool)
-//        MainSceneView(store: Store_SP(initialState: nil,
-//                                      reducer: Reducer_SP()),
-//                                      actionPool: <#ActionPool#>)
+        //        MainSceneView(store: Store_SP(initialState: nil,
+        //                                      reducer: Reducer_SP()),
+        //                                      actionPool: <#ActionPool#>)
         //            .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
     }
 }

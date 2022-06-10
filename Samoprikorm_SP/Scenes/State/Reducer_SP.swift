@@ -23,6 +23,9 @@ struct Reducer_SP {
             
         case .showError(let params):
             newState.errorMessage = params.description
+            
+        case .isLoading(let params):
+            newState.isLoading = params.status
         }
         return newState
     }

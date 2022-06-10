@@ -34,6 +34,6 @@ struct DetailScene_SP: View {
 struct DetailScene_SP_Previews: PreviewProvider {
     
     static var previews: some View {
-        DetailSceneConfigurator_SP.configure(store: store)
+        DetailSceneConfigurator_SP.configure(store: storeGlobal)
     }
 }

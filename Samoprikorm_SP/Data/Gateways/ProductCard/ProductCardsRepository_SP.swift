@@ -18,7 +18,7 @@ final class ProductCardsRepository_SP: ProductCardGateway_SP {
     
     func fetch() async throws -> [ProductCard_SP] {
         return try await withCheckedThrowingContinuation({ continuation in
-            sleep(1)
+            sleep(2)
             let _ = network.fetch { result in
                 switch result {
                 case let .success(cards): continuation.resume(returning: cards)
