@@ -10,19 +10,20 @@ import SwiftUI
 
 struct DetailScene_SP: View {
     
-    @ObservedObject var store: Store_SP
+//    @ObservedObject var store: Store_SP
+    private let card: ProductCard_SP
     private let webViewDelegate: DetailSceneWebViewDelegate_SP
     
-    init(store: Store_SP,
+    init(card: ProductCard_SP,
          webViewDelegate: DetailSceneWebViewDelegate_SP) {
-        self.store = store
+        self.card = card
         self.webViewDelegate = webViewDelegate
     }
     
     var body: some View {
         DetailSceneWebView_SP(navigationWebDelegate: webViewDelegate,
                               uiWebDelegate: webViewDelegate,
-                              urlEndPoint: store.state.selectedCard?.id ?? "Полный УРЛ страницы с ошибкой")
+                              urlEndPoint: card.id)
             .edgesIgnoringSafeArea(.bottom)
     }
 }
@@ -34,6 +35,6 @@ struct DetailScene_SP: View {
 struct DetailScene_SP_Previews: PreviewProvider {
     
     static var previews: some View {
-        DetailSceneConfigurator_SP.configure(store: storeGlobal)
+        DetailSceneConfigurator_SP.configure(card: testCards[0])
     }
 }

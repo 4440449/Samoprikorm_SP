@@ -18,8 +18,8 @@ struct Reducer_SP {
         case .search(let params):
             newState.searchFieldText = params.text
             
-        case .select(let params):
-            newState.selectedCard = params.card
+//        case .select(let params):
+//            newState.selectedCard = params.card
             
         case .showError(let params):
             newState.errorMessage = params.description

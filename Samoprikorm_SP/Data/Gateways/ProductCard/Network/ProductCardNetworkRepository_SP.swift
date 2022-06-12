@@ -50,7 +50,7 @@ final class ProductCardsNetworkRepository_SP: ProductCardsNetworkRepositoryProto
         guard let url = URL(string: imagePath) else { return nil }
         let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request) { data, resp, err in
-            print("1 *** \(Thread.current)")
+//            print("1 *** \(Thread.current)")
             callback(.success(data!))
         }
         task.resume()

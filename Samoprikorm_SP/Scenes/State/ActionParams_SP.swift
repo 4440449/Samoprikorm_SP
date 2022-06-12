@@ -15,7 +15,7 @@ enum ActionParams_SP {
     case initialLoading
     case imageLoading(_ card: ProductCard_SP)
     case search(_ text: String)
-    case select(_ card: ProductCard_SP)
+//    case select(_ card: ProductCard_SP)
 }
 
 
@@ -25,7 +25,7 @@ enum Action_SP {
     case initialLoading(_ action: InitialLoading_SP)
     case imageLoading(_ action: ImageLoading_SP)
     case search(_ action: Search_SP)
-    case select(_ action: Select_SP)
+//    case select(_ action: Select_SP)
     case showError(_ action: Error_SP)
     case isLoading(_ action: IsLoading_SP)
     case isLoadingImage(_ action: IsLoadingImage_SP)
@@ -38,9 +38,9 @@ enum Action_SP {
         let text: String
     }
 
-    struct Select_SP {
-        let card: ProductCard_SP
-    }
+//    struct Select_SP {
+//        let card: ProductCard_SP
+//    }
     
     struct Error_SP {
         let description: String
@@ -106,9 +106,9 @@ final class ActionPool_SP: ObservableObject {
             let action = Action_SP.search(.init(text: text))
             store.dispatch(action: action)
             
-        case .select(card: let card):
-            let action = Action_SP.select(.init(card: card))
-            store.dispatch(action: action)
+//        case .select(card: let card):
+//            let action = Action_SP.select(.init(card: card))
+//            store.dispatch(action: action)
             
         case .imageLoading(let card):
 //            print(card.image == nil || card.iamgeLoading == false)

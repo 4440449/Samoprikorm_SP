@@ -40,7 +40,7 @@ struct DetailSceneWebView_SP: UIViewRepresentable {
     func updateUIView(_ webView: WKWebView, context: Context) {
         print("https://mterpugova.notion.site/\(urlEndPoint)")
         if let requestUrl = URL(string: "https://mterpugova.notion.site/\(urlEndPoint)") {
-            print(requestUrl)
+//            print(requestUrl)
             webView.load(URLRequest(url: requestUrl))
         }
     }

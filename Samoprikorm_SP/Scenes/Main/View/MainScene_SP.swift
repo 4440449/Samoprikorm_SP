@@ -50,10 +50,10 @@ struct MainSceneView: View {
                                 store.state.searchFieldText.isEmpty
                             })) { card in
                                 NavigationLink (destination: {
-                                    DetailSceneConfigurator_SP.configure(store: store)
-                                        .onAppear { // ???
-                                            actionPool.dispatch(params: .select(card))
-                                        }
+                                    DetailSceneConfigurator_SP.configure(card: card)
+//                                        .onAppear { // ???
+//                                            actionPool.dispatch(params: .select(card))
+//                                        }
                                 }, label: {
                                     CardView(product: card, actionPool: actionPool)
                                 })
@@ -96,7 +96,7 @@ struct CardView: View {
         if (product.image != nil || product.imageIsLoading == true) {
             return
         } else {
-            print("imageLoading")
+//            print("imageLoading")
             actionPool.dispatch(params: .imageLoading(product))
         }
     }

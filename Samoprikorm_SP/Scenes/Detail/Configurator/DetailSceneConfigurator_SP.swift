@@ -11,8 +11,8 @@ fileprivate let webViewDelegate = DetailSceneWebViewDelegate_SP()
 
 struct DetailSceneConfigurator_SP {
     
-    static func configure(store: Store_SP) -> some View {
-        return DetailScene_SP(store: store,
+    static func configure(card: ProductCard_SP) -> some View {
+        return DetailScene_SP(card: card,
                               webViewDelegate: webViewDelegate)
     }
 }
