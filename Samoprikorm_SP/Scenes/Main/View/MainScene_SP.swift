@@ -51,9 +51,9 @@ struct MainSceneView: View {
                             })) { card in
                                 NavigationLink (destination: {
                                     DetailSceneConfigurator_SP.configure(card: card)
-//                                        .onAppear { // ???
-//                                            actionPool.dispatch(params: .select(card))
-//                                        }
+                                    //                                        .onAppear { // ???
+                                    //                                            actionPool.dispatch(params: .select(card))
+                                    //                                        }
                                 }, label: {
                                     CardView(product: card, actionPool: actionPool)
                                 })
@@ -92,13 +92,7 @@ struct CardView: View {
         self.productCard = product
         self.actionPool = actionPool
         print("CardView INIT \(product.title)")
-        //            actionPool.dispatch(params: .imageLoading(product))
-        if (product.image != nil || product.imageIsLoading == true) {
-            return
-        } else {
-//            print("imageLoading")
-            actionPool.dispatch(params: .imageLoading(product))
-        }
+        actionPool.dispatch(params: .imageLoading(product))
     }
     
     //MARK: - Body

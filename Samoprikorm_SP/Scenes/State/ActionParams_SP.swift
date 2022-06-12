@@ -88,7 +88,6 @@ final class ActionPool_SP: ObservableObject {
             let isloadingAction = Action_SP.isLoading(.init(status: true))
             store.dispatch(action: isloadingAction)
             let _ = Task {
-                
                 do {
                     let cards = try await productCardRepository.fetch()
 //                    sleep(10)
@@ -111,8 +110,7 @@ final class ActionPool_SP: ObservableObject {
 //            store.dispatch(action: action)
             
         case .imageLoading(let card):
-//            print(card.image == nil || card.iamgeLoading == false)
-//            guard card.image == nil || card.iamgeLoading == false else { return }
+            guard (card.image == nil && card.imageIsLoading == false) else { return }
             let action = Action_SP.isLoadingImage(.init(card: card, status: true))
             store.dispatch(action: action)
             let _ = Task {
@@ -132,6 +130,7 @@ final class ActionPool_SP: ObservableObject {
                 let action = Action_SP.isLoadingImage(.init(card: card, status: false))
                 store.dispatch(action: action)
             }
+//            }
 //            tasks.append(task)
         }
     }
