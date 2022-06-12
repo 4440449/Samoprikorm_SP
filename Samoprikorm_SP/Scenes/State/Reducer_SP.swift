@@ -26,6 +26,20 @@ struct Reducer_SP {
             
         case .isLoading(let params):
             newState.isLoading = params.status
+            
+        case .imageLoading(let params):
+            for i in 0..<newState.cards.count {
+                if newState.cards[i].id == params.card.id {
+                    newState.cards[i].image = params.image
+                }
+            }
+            
+        case .isLoadingImage(let params):
+            for i in 0..<newState.cards.count {
+                if newState.cards[i].id == params.card.id {
+                    newState.cards[i].imageIsLoading = params.status
+                }
+            }
         }
         return newState
     }

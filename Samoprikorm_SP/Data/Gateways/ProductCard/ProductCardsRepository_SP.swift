@@ -18,10 +18,22 @@ final class ProductCardsRepository_SP: ProductCardGateway_SP {
     
     func fetch() async throws -> [ProductCard_SP] {
         return try await withCheckedThrowingContinuation({ continuation in
-            sleep(2)
             let _ = network.fetch { result in
                 switch result {
                 case let .success(cards): continuation.resume(returning: cards)
+                case let .failure(error): continuation.resume(throwing: error); print(error)
+                }
+            }
+        })
+    }
+    
+    func fetchImage(for card: ProductCard_SP) async throws -> Data {
+        try await withCheckedThrowingContinuation({ continuation in
+//            print("1 +++ \(Thread.current)")
+            let _ = network.fetchImage(for: card) { result in
+//                print("1 --- \(Thread.current)")
+                switch result {
+                case let .success(image): continuation.resume(returning: image)
                 case let .failure(error): continuation.resume(throwing: error); print(error)
                 }
             }
