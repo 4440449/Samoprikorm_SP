@@ -12,11 +12,17 @@ struct State_SP {
     var cards = [ProductCard_SP]()
     var errorMessage = "" { willSet { print("errorMessage ---> \(errorMessage) <---") } }
     var isLoading = false
+    
+    init(cards: [ProductCard_SP]?) {
+        guard let cards = cards else { return }
+        self.cards = cards
+    }
 }
 
 
 
 
+//let testCards =
 //[
 //    ProductCard_SP (id: "1", title: "Грейпфрут", imagePath: "grape", allergen: "Нет", age: "6+", rating: "🙂"),
 //    ProductCard_SP (id: "2", title: "Банан", imagePath: "banana", allergen: "Нет", age: "6+", rating: "🤩"),

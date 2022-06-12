@@ -20,7 +20,7 @@ final class Store_SP: ObservableObject {
     
     init(initialState: State_SP?,
          reducer: Reducer_SP) {
-        self.state = initialState ?? State_SP()
+        self.state = initialState ?? State_SP(cards: nil)
         self.reducer = reducer
         print("INIT Store_SP")
     }

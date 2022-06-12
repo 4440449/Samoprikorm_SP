@@ -105,6 +105,8 @@ struct CardView: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
+                //                    Image(productCard.imagePath!, bundle: nil)
+                //                        .resizable()
                 ZStack {
                     Image(uiImage: productCard.image ?? UIImage())
                         .resizable()
@@ -140,30 +142,24 @@ struct CardView: View {
                 }
                 .padding(.init(top: 5, leading: 15, bottom: 20, trailing: 0))
             }
-            .background(Color(.sRGB, red: 246, green: 247, blue: 250, opacity: 1))
-            .cornerRadius(12)
-            .padding(.all, 1)
+            .cornerRadius(5)
         }
         .frame(height: 409)
+        .padding(.all, 2)
         .background(Color.white)
-        .cornerRadius(12)
+        .cornerRadius(6)
         .padding(.horizontal, 16)
         .shadow(color: Color.gray.opacity(0.13), radius: 5, x: 0, y: 8)
-        //        .onAppear {
-        //            actionPool.dispatch(params: .imageLoading(productCard))
-        //        }
     }
 }
 
 
 
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainSceneConfigurator_SP.configure(store: storeGlobal,
+        MainSceneConfigurator_SP.configure(store: testStore,
                                            actionPool: actionPool)
-        //        MainSceneView(store: Store_SP(initialState: nil,
-        //                                      reducer: Reducer_SP()),
-        //                                      actionPool: <#ActionPool#>)
         //            .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
     }
 }
