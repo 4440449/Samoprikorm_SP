@@ -124,7 +124,8 @@ final class ActionPool_SP: ObservableObject {
                     let successAction = Action_SP.imageLoading(.init(card: card, image: uiImage))
                     store.dispatch(action: successAction)
                 } catch {
-                    let errorImageAction = Action_SP.imageLoading(.init(card: card, image: UIImage(systemName: "exclamationmark.circle")!))
+                    let errorImageAction = Action_SP.imageLoading(.init(card: card, image: UIImage(named: "alert")!))
+                    
                     store.dispatch(action: errorImageAction)
                 }
                 let action = Action_SP.isLoadingImage(.init(card: card, status: false))
