@@ -94,7 +94,7 @@ final class ActionPool_SP: ObservableObject {
                     let successAction = Action_SP.initialLoading(.init(cards: cards))
                     store.dispatch(action: successAction)
                 } catch let error {
-                    let errAction = Action_SP.showError(.init(description: error.localizedDescription))
+                    let errAction = Action_SP.showError(.init(description: "\(error)"))
                     store.dispatch(action: errAction)
                 }
                 let isloadingAction = Action_SP.isLoading(.init(status: false))
@@ -123,9 +123,9 @@ final class ActionPool_SP: ObservableObject {
 //                    let image = Image(uiImage: uiImage)
                     let successAction = Action_SP.imageLoading(.init(card: card, image: uiImage))
                     store.dispatch(action: successAction)
-                } catch let error {
-                    let errAction = Action_SP.showError(.init(description: error.localizedDescription))
-                    store.dispatch(action: errAction) //в отдельную вью эту ошибку!
+                } catch {
+                    let errorImageAction = Action_SP.imageLoading(.init(card: card, image: UIImage(systemName: "exclamationmark.circle")!))
+                    store.dispatch(action: errorImageAction)
                 }
                 let action = Action_SP.isLoadingImage(.init(card: card, status: false))
                 store.dispatch(action: action)

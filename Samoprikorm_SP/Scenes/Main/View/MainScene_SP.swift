@@ -27,6 +27,7 @@ struct MainSceneView: View {
     
     //MARK: - State
     @State private var txtField = ""
+    @State private var isDisplayingErrorAlert = false
     
     //MARK: - Body
     var body: some View {
@@ -74,6 +75,23 @@ struct MainSceneView: View {
                   perform: { newTxt in
             actionPool.dispatch(params: .search(newTxt))
         })
+        .alert(isPresented: $isDisplayingErrorAlert) {
+            Alert(title: Text("Error"), message: Text(store.state.errorMessage), dismissButton: .cancel())
+        }
+        .onSubmit {
+            print("onSubmit")
+        }
+        .onAppear {
+            print("onAppear")
+        }
+        .onChange(of: store.state.errorMessage) { newValue in
+            print("onAppear")
+            self.isDisplayingErrorAlert = true
+        }
+        .onHover { bol in
+            print("onHover some bol --> \(bol)")
+        }
+        
     }
 }
 
@@ -91,7 +109,7 @@ struct CardView: View {
          actionPool: ActionPool_SP) {
         self.productCard = product
         self.actionPool = actionPool
-        print("CardView INIT \(product.title)")
+        //        print("CardView INIT \(product.title)")
         actionPool.dispatch(params: .imageLoading(product))
     }
     
@@ -104,6 +122,7 @@ struct CardView: View {
                 ZStack {
                     Image(uiImage: productCard.image ?? UIImage())
                         .resizable()
+                    //                        .scaledToFit()
                     if productCard.imageIsLoading {
                         ProgressView()
                             .progressViewStyle(.circular)
