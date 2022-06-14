@@ -14,9 +14,9 @@ struct State_SP {
 //        willSet { print(" ---> \(cards.forEach({ print($0.title) })) <---") }
 //    }
     var errorMessage = ""
-    {
-        willSet { print("errorMessage ---> \(errorMessage) <---") }
-    }
+//    {
+//        willSet { print("errorMessage ---> \(errorMessage) <---") }
+//    }
 //    var isDisplayingError = false
     var isLoading = false
     

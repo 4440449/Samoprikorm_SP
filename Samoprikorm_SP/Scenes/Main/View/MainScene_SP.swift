@@ -33,16 +33,18 @@ struct MainSceneView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.init(UIColor(red: 0.922, green: 0.929, blue: 0.957, alpha: 1)).ignoresSafeArea(.all, edges: .all)
+                Color.init(UIColor(red: 0.922, green: 0.929, blue: 0.957, alpha: 1))
+                    .ignoresSafeArea(.all, edges: .all)
                 ScrollView {
                     ZStack {
+                        Color.clear
+                            .frame(width: UIScreen.main.bounds.width,
+                                   height: UIScreen.main.bounds.height * 0.7,
+                                   alignment: .center)
                         if store.state.isLoading {
                             ProgressView()
                                 .progressViewStyle(.circular)
                                 .scaleEffect(1.3)
-                                .frame(width: UIScreen.main.bounds.width,
-                                       height: UIScreen.main.bounds.height * 0.7,
-                                       alignment: .center)
                         }
                         VStack {
                             ForEach(store.state.cards.filter({
@@ -85,7 +87,7 @@ struct MainSceneView: View {
             print("onAppear")
         }
         .onChange(of: store.state.errorMessage) { newValue in
-            print("onAppear")
+            print("onChange")
             self.isDisplayingErrorAlert = true
         }
         .onHover { bol in
