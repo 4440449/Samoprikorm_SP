@@ -32,8 +32,12 @@ struct DetailSceneWebView_SP: UIViewRepresentable {
                                 configuration: configuration)
         webView.navigationDelegate = navigationWebDelegate
         webView.uiDelegate = uiWebDelegate
-        //        webView.allowsBackForwardNavigationGestures = true
-        //        webView.scrollView.isScrollEnabled = true
+        webView.isOpaque = false
+        webView.backgroundColor = UIColor.clear
+        webView.scrollView.backgroundColor = UIColor.clear
+//        webView.backgroundColor = UIColor(named: "background")
+//                webView.allowsBackForwardNavigationGestures = true
+//                webView.scrollView.isScrollEnabled = true
         return webView
     }
     

@@ -35,6 +35,6 @@ struct DetailScene_SP: View {
 struct DetailScene_SP_Previews: PreviewProvider {
     
     static var previews: some View {
-        DetailSceneConfigurator_SP.configure(card: testCards[0])
+            DetailSceneConfigurator_SP.configure(card: testCards[0])
     }
 }
