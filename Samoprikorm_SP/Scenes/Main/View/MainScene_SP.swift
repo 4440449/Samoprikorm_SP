@@ -17,6 +17,8 @@ struct MainSceneView: View {
         self.store = store
         self.actionPool = actionPool
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Montserrat-Black", size: 38)!]
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "Отмена"
+
         actionPool.dispatch(params: .initialLoading)
         print("MainSceneView INIT")
     }
@@ -64,18 +66,26 @@ struct MainSceneView: View {
                         }
                     }
                 }
-                .navigationTitle("Продукты")
+                //.navigationTitle("Продукты")
             }
+            .navigationTitle("Продукты")
         }
         .navigationViewStyle(.stack)
+//        .searchable(text: $txtField,
+//                    placement: .navigationBarDrawer(displayMode: .always))
         .searchable(text: $txtField,
-                    placement: .navigationBarDrawer(displayMode: .always))
+                    placement: .navigationBarDrawer(displayMode: .always),
+                    prompt: "Поиск")
+        
+        
         .onChange(of: txtField,
                   perform: { newTxt in
             actionPool.dispatch(params: .search(newTxt))
         })
         .alert(isPresented: $isDisplayingErrorAlert) {
-            Alert(title: Text("Error"), message: Text(store.state.errorMessage), dismissButton: .cancel())
+            Alert(title: Text("Ошибка"),
+                  message: Text(store.state.errorMessage),
+                  dismissButton: .cancel(Text("Отмена")))
         }
         .onSubmit {
             print("onSubmit")
