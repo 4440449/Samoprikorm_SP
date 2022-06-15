@@ -66,18 +66,13 @@ struct MainSceneView: View {
                         }
                     }
                 }
-                //.navigationTitle("Продукты")
             }
             .navigationTitle("Продукты")
         }
         .navigationViewStyle(.stack)
-//        .searchable(text: $txtField,
-//                    placement: .navigationBarDrawer(displayMode: .always))
         .searchable(text: $txtField,
                     placement: .navigationBarDrawer(displayMode: .always),
                     prompt: "Поиск")
-        
-        
         .onChange(of: txtField,
                   perform: { newTxt in
             actionPool.dispatch(params: .search(newTxt))
@@ -167,16 +162,18 @@ struct CardView: View {
                 }
                 .background(Color("cardFill2", bundle: nil))
             }
-            .cornerRadius(16)
+            .cornerRadius(14)
         }
         //        .frame(height: 409)
         .frame(height: UIScreen.main.bounds.height * 0.485)
         .padding(.all, 2)
-        .background(Color("cardBorderSystemColor", bundle: nil))
-        .cornerRadius(17)
+        .background(Color("cardBorderSystemColor2", bundle: nil))
+        .cornerRadius(15)
         .padding(.horizontal, 16)
-        .shadow(color: Color("cardShadow", bundle: nil),
-                radius: 10, x: 0, y: 8)
+        .shadow(color: Color("cardShadowUp", bundle: nil),
+                radius: 6, x: -3, y: -7)
+        .shadow(color: Color("cardShadowDown", bundle: nil),
+                radius: 6, x: 5, y: 5)
     }
 }
 
