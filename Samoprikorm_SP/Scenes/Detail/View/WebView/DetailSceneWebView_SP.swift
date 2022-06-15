@@ -35,23 +35,13 @@ struct DetailSceneWebView_SP: UIViewRepresentable {
         webView.isOpaque = false
         webView.backgroundColor = .clear
         webView.scrollView.backgroundColor = .clear
-//        webView.backgroundColor = UIColor(named: "background")
-//                webView.allowsBackForwardNavigationGestures = true
-//                webView.scrollView.isScrollEnabled = true
         return webView
     }
     
     func updateUIView(_ webView: WKWebView, context: Context) {
         print("https://mterpugova.notion.site/\(urlEndPoint)")
         if let requestUrl = URL(string: "https://mterpugova.notion.site/\(urlEndPoint)") {
-//            print(requestUrl)
             webView.load(URLRequest(url: requestUrl))
         }
     }
 }
-
-
-
-
-//"https://mterpugova.notion.site/9c9513b81bdf4b6dbdcb7e62c3124d00"
-//"https://mterpugova.ru/?go=all/resheno-1-5-goda-ranniy-podem-trudnoe-poslednee-bodrstvovanie/"

@@ -9,7 +9,12 @@ import BabyNet
 import Foundation
 
 
-public struct ProductCardNetworkEntity_SP: Decodable, DomainRepresentable {
+protocol DomainConvertable {
+    associatedtype DomainEntity
+    func parseToDomain() throws -> DomainEntity
+}
+
+struct ProductCardNetworkEntity_SP: Decodable, DomainConvertable {
     
     let id: String
     let createdAt: String
@@ -29,7 +34,7 @@ public struct ProductCardNetworkEntity_SP: Decodable, DomainRepresentable {
         case rating
     }
     
-    public init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.id = try container.decode(String.self, forKey: .id)
             self.createdAt = try container.decode(String.self, forKey: .created_at)
@@ -41,7 +46,7 @@ public struct ProductCardNetworkEntity_SP: Decodable, DomainRepresentable {
     }
     
 //     DomainConvertable
-       public func parseToDomain() throws -> ProductCard_SP {
+       func parseToDomain() -> ProductCard_SP {
            return .init(id: self.id,
                         title: self.title,
                         imagePath: self.imagePath,
@@ -52,13 +57,13 @@ public struct ProductCardNetworkEntity_SP: Decodable, DomainRepresentable {
 }
 
 
-extension Array: DomainRepresentable where Element == ProductCardNetworkEntity_SP {
-
-    public func parseToDomain() throws -> [ProductCard_SP] {
-         var domainEntityArr = [ProductCard_SP]()
-         try self.forEach { networkEntity in
-             domainEntityArr.append(try networkEntity.parseToDomain())
-         }
-        return domainEntityArr
-    }
-}
+//extension Array: DomainRepresentable where Element == ProductCardNetworkEntity_SP {
+//
+//    public func parseToDomain() throws -> [ProductCard_SP] {
+//         var domainEntityArr = [ProductCard_SP]()
+//         try self.forEach { networkEntity in
+//             domainEntityArr.append(try networkEntity.parseToDomain())
+//         }
+//        return domainEntityArr
+//    }
+//}

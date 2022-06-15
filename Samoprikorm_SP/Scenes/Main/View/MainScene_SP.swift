@@ -12,13 +12,13 @@ import Foundation
 
 struct MainSceneView: View {
     
+    //MARK: - Init
     init(store: Store_SP,
          actionPool: ActionPool_SP) {
         self.store = store
         self.actionPool = actionPool
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Montserrat-Black", size: 38)!]
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "Отмена"
-
         actionPool.dispatch(params: .initialLoading)
         print("MainSceneView INIT")
     }
@@ -82,20 +82,9 @@ struct MainSceneView: View {
                   message: Text(store.state.errorMessage),
                   dismissButton: .cancel(Text("Отмена")))
         }
-        .onSubmit {
-            print("onSubmit")
-        }
-        .onAppear {
-            print("onAppear")
-        }
-        .onChange(of: store.state.errorMessage) { newValue in
-            print("onChange")
+        .onChange(of: store.state.errorMessage) { _ in
             self.isDisplayingErrorAlert = true
         }
-        .onHover { bol in
-            print("onHover some bol --> \(bol)")
-        }
-        
     }
 }
 
@@ -113,7 +102,6 @@ struct CardView: View {
          actionPool: ActionPool_SP) {
         self.productCard = product
         self.actionPool = actionPool
-        //        print("CardView INIT \(product.title)")
         actionPool.dispatch(params: .imageLoading(product))
     }
     
@@ -164,7 +152,6 @@ struct CardView: View {
             }
             .cornerRadius(14)
         }
-        //        .frame(height: 409)
         .frame(height: UIScreen.main.bounds.height * 0.485)
         .padding(.all, 2)
         .background(Color("cardBorderSystemColor2", bundle: nil))

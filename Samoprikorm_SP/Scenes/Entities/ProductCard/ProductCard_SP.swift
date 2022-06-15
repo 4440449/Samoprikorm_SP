@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 
-public struct ProductCard_SP: Identifiable {
-    public let id: String
+struct ProductCard_SP: Identifiable {
+    let id: String
     let title: String
     let imagePath: String?
     let allergen: String

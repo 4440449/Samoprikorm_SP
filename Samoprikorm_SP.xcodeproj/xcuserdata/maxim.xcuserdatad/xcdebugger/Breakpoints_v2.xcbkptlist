@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0EC87FE1-6593-4510-82F1-811B6FC8155B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Samoprikorm_SP/Scenes/Detail/View/WebView/DetailSceneWebView_SP.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "updateUIView(_:context:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "1E9C388A-B0BD-4A1A-B49F-444AD7EF3A39"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -65,6 +49,22 @@
             startingLineNumber = "11"
             endingLineNumber = "11"
             landmarkName = "execute(action:state:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "24098E19-70FC-4938-B2A9-7C208C46ED81"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Samoprikorm_SP/Scenes/State/ActionParams_SP.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "dispatch(params:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

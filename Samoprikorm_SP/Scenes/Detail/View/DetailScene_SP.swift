@@ -10,7 +10,6 @@ import SwiftUI
 
 struct DetailScene_SP: View {
     
-//    @ObservedObject var store: Store_SP
     private let card: ProductCard_SP
     private let webViewDelegate: DetailSceneWebViewDelegate_SP
     

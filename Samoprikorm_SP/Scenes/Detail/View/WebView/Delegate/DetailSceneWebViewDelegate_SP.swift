@@ -19,10 +19,8 @@ final class DetailSceneWebViewDelegate_SP: NSObject,
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
         let url = navigationAction.request.url
         if (url != nil && url!.absoluteString.contains("mterpugova")) {
-//            print ("allow"); return .allow
             return .allow
         } else {
-//            print ("cancel"); return .cancel
             return .cancel
         }
     }
