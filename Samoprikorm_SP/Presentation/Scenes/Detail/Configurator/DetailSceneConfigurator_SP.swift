@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import WebKit
 
-fileprivate let webViewDelegate = DetailSceneWebViewDelegate_SP()
+private let webViewDelegate = DetailSceneWebViewDelegate_SP()
+private let detailWebView = DetailWKWebView_SP(frame: .zero,
+                                             configuration: WKWebViewConfiguration(),
+                                             navigationDelegate: webViewDelegate,
+                                             uiDelegate: webViewDelegate)
 
 struct DetailSceneConfigurator_SP {
-    
     static func configure(card: ProductCard_SP) -> some View {
         return DetailScene_SP(card: card,
-                              webViewDelegate: webViewDelegate)
+                              wkWebView: detailWebView)
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 import Foundation
 
 
-struct MainSceneView: View {
+struct MainSceneView_SP: View {
     
     //MARK: - Init
     init(store: Store_SP,
@@ -24,8 +24,8 @@ struct MainSceneView: View {
     }
     
     //MARK: - Dependencies
-    @ObservedObject var actionPool: ActionPool_SP
-    @ObservedObject var store: Store_SP
+    private let actionPool: ActionPool_SP
+    @ObservedObject private var store: Store_SP
     
     //MARK: - State
     @State private var txtField = ""
@@ -58,7 +58,7 @@ struct MainSceneView: View {
                                 NavigationLink (destination: {
                                     DetailSceneConfigurator_SP.configure(card: card)
                                 }, label: {
-                                    CardView(product: card, actionPool: actionPool)
+                                    CardView_SP(product: card, actionPool: actionPool)
                                 })
                                     .buttonStyle(PlainButtonStyle())
                             }
@@ -90,7 +90,7 @@ struct MainSceneView: View {
 
 
 
-struct CardView: View {
+struct CardView_SP: View {
     
     //MARK: - Dependencies
     private let productCard: ProductCard_SP
@@ -128,19 +128,19 @@ struct CardView: View {
                             VStack(alignment: .leading) {
                                 Text(productCard.age)
                                     .title2()
-                                Text("months")
+                                Text("месяцев")
                                     .callout()
                             }
                             VStack(alignment: .leading) {
                                 Text(productCard.allergen)
                                     .title2()
-                                Text("allergen")
+                                Text("аллерген")
                                     .callout()
                             }
                             VStack(alignment: .leading) {
                                 Text(productCard.rating)
                                     .title2()
-                                Text("benefit")
+                                Text("польза")
                                     .callout()
                             }
                         }

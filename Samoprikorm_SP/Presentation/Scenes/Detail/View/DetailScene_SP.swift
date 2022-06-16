@@ -11,19 +11,30 @@ import SwiftUI
 struct DetailScene_SP: View {
     
     private let card: ProductCard_SP
-    private let webViewDelegate: DetailSceneWebViewDelegate_SP
+    @ObservedObject private var wkWebView: DetailWKWebView_SP
     
     init(card: ProductCard_SP,
-         webViewDelegate: DetailSceneWebViewDelegate_SP) {
+         wkWebView: DetailWKWebView_SP) {
         self.card = card
-        self.webViewDelegate = webViewDelegate
+        self.wkWebView = wkWebView
     }
     
     var body: some View {
-        DetailSceneWebView_SP(navigationWebDelegate: webViewDelegate,
-                              uiWebDelegate: webViewDelegate,
-                              urlEndPoint: card.id)
-            .edgesIgnoringSafeArea(.bottom)
+        ZStack {
+            DetailSceneWebView_SP(urlEndPoint: card.id,
+                                  wkWebWiev: wkWebView)
+            if wkWebView.loadingState {
+                Color("WebViewLoadingBackgroundColor", bundle: nil)
+                    .frame(width: UIScreen.main.bounds.width,
+                           height: UIScreen.main.bounds.height,
+                           alignment: .center)
+                ProgressView()
+                    .progressViewStyle(.circular)
+                    .scaleEffect(1.3)
+            }
+        }
+        .edgesIgnoringSafeArea(.bottom)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -34,6 +45,6 @@ struct DetailScene_SP: View {
 struct DetailScene_SP_Previews: PreviewProvider {
     
     static var previews: some View {
-            DetailSceneConfigurator_SP.configure(card: testCards[0])
+        DetailSceneConfigurator_SP.configure(card: testCards[0])
     }
 }

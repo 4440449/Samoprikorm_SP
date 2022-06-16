@@ -66,7 +66,7 @@ enum Action_SP {
 
 //MARK: - Action Pool (Action + Middleware)
 
-final class ActionPool_SP: ObservableObject {
+final class ActionPool_SP {
 
     private let store: Store_SP
     private let productCardRepository: ProductCardGateway_SP

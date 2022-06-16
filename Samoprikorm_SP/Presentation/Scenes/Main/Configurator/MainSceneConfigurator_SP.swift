@@ -11,6 +11,6 @@ import SwiftUI
 struct MainSceneConfigurator_SP {
     
     static func configure(store: Store_SP, actionPool: ActionPool_SP) -> some View {
-        return MainSceneView(store: store, actionPool: actionPool)
+        return MainSceneView_SP(store: store, actionPool: actionPool)
     }
 }
