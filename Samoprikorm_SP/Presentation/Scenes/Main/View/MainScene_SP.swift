@@ -148,13 +148,13 @@ struct CardView: View {
                     .padding(.init(top: 13, leading: 16, bottom: 20, trailing: 0))
                     Spacer()
                 }
-                .background(Color("cardFill2", bundle: nil))
+                .background(Color("cardFill3", bundle: nil))
             }
             .cornerRadius(14)
         }
         .frame(height: UIScreen.main.bounds.height * 0.485)
         .padding(.all, 2)
-        .background(Color("cardBorderSystemColor2", bundle: nil))
+        .background(Color("cardBorderSystemColor3", bundle: nil))
         .cornerRadius(15)
         .padding(.horizontal, 16)
         .shadow(color: Color("cardShadowUp", bundle: nil),
