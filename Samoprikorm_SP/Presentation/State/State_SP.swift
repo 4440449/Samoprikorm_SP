@@ -8,17 +8,10 @@
 
 struct State_SP {
     var searchFieldText = ""
-//    var selectedCard: ProductCard_SP?
     var cards = [ProductCard_SP]()
-//    {
-//        willSet { print(" ---> \(cards.forEach({ print($0.title) })) <---") }
-//    }
     var errorMessage = ""
-//    {
-//        willSet { print("errorMessage ---> \(errorMessage) <---") }
-//    }
-//    var isDisplayingError = false
     var isLoading = false
+    var needToReloading = false
     
     init(cards: [ProductCard_SP]?) {
         guard let cards = cards else { return }

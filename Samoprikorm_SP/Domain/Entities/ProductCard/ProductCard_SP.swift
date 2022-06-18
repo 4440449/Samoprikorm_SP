@@ -17,6 +17,5 @@ struct ProductCard_SP: Identifiable {
     let age: String
     let rating: String
     var image: UIImage?
-//    { willSet { print("image is loaded \(title)")} }
     var imageIsLoading: Bool = false
 }

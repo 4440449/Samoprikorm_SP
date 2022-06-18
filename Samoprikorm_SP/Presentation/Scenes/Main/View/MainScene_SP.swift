@@ -41,14 +41,26 @@ struct MainSceneView_SP: View {
                 ScrollView {
                     ZStack {
                         Color.clear
-                            .frame(width: UIScreen.main.bounds.width,
-                                   height: UIScreen.main.bounds.height * 0.2,
+                            .frame(height: UIScreen.main.bounds.height * 0.2,
                                    alignment: .center)
-                        if store.state.isLoading {
-                            ProgressView()
-                                .progressViewStyle(.circular)
-                                .scaleEffect(1.3)
+                        VStack(alignment: .center) {
+                            if store.state.isLoading {
+                                ProgressView()
+                                    .progressViewStyle(.circular)
+                                    .scaleEffect(1.3)
+                            }
+                            if (store.state.needToReloading && !store.state.isLoading) {
+                                Button {
+                                    actionPool.dispatch(params: .initialLoading)
+                                } label: {
+                                    Image(systemName: "arrow.clockwise")
+                                        .scaleEffect(1.4)
+                                        .foregroundColor(Color.primary)
+                                }
+                            }
                         }
+                        .frame(height: UIScreen.main.bounds.height*0.6,
+                               alignment: .center)
                         VStack {
                             ForEach(store.state.cards.filter({
                                 $0.title.contains(store.state.searchFieldText.capitalized)
@@ -80,10 +92,15 @@ struct MainSceneView_SP: View {
         .alert(isPresented: $isDisplayingErrorAlert) {
             Alert(title: Text("Ошибка"),
                   message: Text(store.state.errorMessage),
-                  dismissButton: .cancel(Text("Отмена")))
+                  dismissButton: .cancel(Text("Хорошо"),
+                                         action: {
+                actionPool.dispatch(params: .hideAlert)
+            }))
         }
-        .onChange(of: store.state.errorMessage) { _ in
-            self.isDisplayingErrorAlert = true
+        .onChange(of: store.state.errorMessage) { errorMessage in
+            guard !errorMessage.isEmpty else { return }
+            print("onChange")
+            isDisplayingErrorAlert = true
         }
     }
 }

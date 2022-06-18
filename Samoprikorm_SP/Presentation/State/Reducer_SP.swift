@@ -18,10 +18,7 @@ struct Reducer_SP {
         case .search(let params):
             newState.searchFieldText = params.text
             
-//        case .select(let params):
-//            newState.selectedCard = params.card
-            
-        case .showError(let params):
+        case .sendErrorMessage(let params):
             newState.errorMessage = params.description
             
         case .isLoading(let params):
@@ -40,6 +37,8 @@ struct Reducer_SP {
                     newState.cards[i].imageIsLoading = params.status
                 }
             }
+        case .needToReloading(let params):
+            newState.needToReloading = params.status
         }
         return newState
     }
