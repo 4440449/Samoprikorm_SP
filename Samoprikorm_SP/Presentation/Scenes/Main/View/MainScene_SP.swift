@@ -30,7 +30,7 @@ struct MainSceneView_SP: View {
     //MARK: - State
     @State private var txtField = ""
     @State private var isDisplayingErrorAlert = false
-    
+    @Environment(\.presentationMode) var presentationMode
     
     //MARK: - Body
     var body: some View {
@@ -80,6 +80,16 @@ struct MainSceneView_SP: View {
                 }
             }
             .navigationTitle("Продукты")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "chevron.down")
+                            .foregroundColor(.primary)
+                    }
+                }
+            }
         }
         .navigationViewStyle(.stack)
         .searchable(text: $txtField,
@@ -92,7 +102,7 @@ struct MainSceneView_SP: View {
         .alert(isPresented: $isDisplayingErrorAlert) {
             Alert(title: Text("Ошибка"),
                   message: Text(store.state.errorMessage),
-                  dismissButton: .cancel(Text("Хорошо"),
+                  dismissButton: .cancel(Text("Закрыть"),
                                          action: {
                 actionPool.dispatch(params: .hideAlert)
             }))
