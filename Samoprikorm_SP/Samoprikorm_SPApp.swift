@@ -20,18 +20,18 @@ let testCards =
     ProductCard_SP (id: "7", title: "Помидор", imagePath: "tomato", allergen: "Да", age: "6+", rating: "🙂"),
 ]
 let testState = State_SP(cards: testCards)
-let testStore = Store_SP(initialState: testState, reducer: reducer)
-
-
-
-let reducer = Reducer_SP()
-let storeGlobal = Store_SP(initialState: nil, reducer: reducer)
-let client = BabyNetRepository()
-let apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNydXZtZ3V1YWRyaWt4amdscml3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTQ3ODgyMzgsImV4cCI6MTk3MDM2NDIzOH0.udc8nAU84lOWCgJChCCq815w0oBoXh6zrceObzg8Z1Q"
-let network = ProductCardsNetworkRepository_SP(client: client, apiKey: apiKey)
-let repository = ProductCardsRepository_SP(network: network)
-let errorHandler = ErrorHandler_SP()
-let actionPool = ActionPool_SP(store: storeGlobal, productCardRepository: repository, errorHandler: errorHandler)
+let testReducer = Reducer_SP()
+let testStore = Store_SP(initialState: testState,
+                         reducer: testReducer)
+let testClient = BabyNetRepository()
+let testApiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNydXZtZ3V1YWRyaWt4amdscml3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTQ3ODgyMzgsImV4cCI6MTk3MDM2NDIzOH0.udc8nAU84lOWCgJChCCq815w0oBoXh6zrceObzg8Z1Q"
+let testNetwork = ProductCardsNetworkRepository_SP(client: testClient,
+                                                   apiKey: testApiKey)
+let testRepository = ProductCardsRepository_SP(network: testNetwork)
+let testErrorHandler = ErrorHandler_SP()
+let testActionPool = ActionPool_SP(store: testStore,
+                                   productCardRepository: testRepository,
+                                   errorHandler: testErrorHandler)
 
 
 @main
@@ -39,7 +39,7 @@ struct Samoprikorm_SPApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainSceneConfigurator_SP.configure(store: storeGlobal, actionPool: actionPool)
+            MainSceneConfigurator_SP.configure()
         }
     }
 }

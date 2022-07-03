@@ -41,7 +41,9 @@ final class ProductCardsNetworkRepository_SP: ProductCardsNetworkRepositoryProto
                               request: request,
                               session: session,
                               decoderType: decoderType,
-                              callback: callback)
+                              observationCallback: nil,
+                              taskProgressCallback: nil,
+                              responseCallback: callback)
     }
     
     func fetchImage(for card: ProductCard_SP, callback: @escaping (Result<Data, Error>) -> ()) -> URLSessionTask? {
@@ -57,7 +59,9 @@ final class ProductCardsNetworkRepository_SP: ProductCardsNetworkRepositoryProto
                               request: request,
                               session: session,
                               decoderType: nil,
-                              callback: callback)
+                              observationCallback: nil,
+                              taskProgressCallback: nil,
+                              responseCallback: callback)
         }
     
     

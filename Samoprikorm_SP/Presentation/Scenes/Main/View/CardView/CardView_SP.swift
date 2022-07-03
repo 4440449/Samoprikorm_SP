@@ -86,8 +86,7 @@ struct CardView_SP: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainSceneConfigurator_SP.configure(store: testStore,
-                                           actionPool: actionPool)
+        MainSceneConfigurator_SP.configure()
         //            .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
     }
 }

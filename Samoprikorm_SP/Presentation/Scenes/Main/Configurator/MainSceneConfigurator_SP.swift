@@ -6,11 +6,21 @@
 //
 
 import SwiftUI
+import BabyNet
 
 
-struct MainSceneConfigurator_SP {
+public struct MainSceneConfigurator_SP {
     
-    static func configure(store: Store_SP, actionPool: ActionPool_SP) -> some View {
-        return MainSceneView_SP(store: store, actionPool: actionPool)
+    public static func configure() -> some View {
+        let reducer = Reducer_SP()
+        let storeGlobal = Store_SP(initialState: nil, reducer: reducer)
+        let client = BabyNetRepository()
+        let apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNydXZtZ3V1YWRyaWt4amdscml3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTQ3ODgyMzgsImV4cCI6MTk3MDM2NDIzOH0.udc8nAU84lOWCgJChCCq815w0oBoXh6zrceObzg8Z1Q"
+        let network = ProductCardsNetworkRepository_SP(client: client, apiKey: apiKey)
+        let repository = ProductCardsRepository_SP(network: network)
+        let errorHandler = ErrorHandler_SP()
+        let actionPool = ActionPool_SP(store: storeGlobal, productCardRepository: repository, errorHandler: errorHandler)
+        return MainSceneView_SP(store: storeGlobal,
+                                actionPool: actionPool)
     }
 }
