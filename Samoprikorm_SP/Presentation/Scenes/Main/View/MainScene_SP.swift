@@ -20,7 +20,6 @@ struct MainSceneView_SP: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Montserrat-Black", size: 38)!]
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "Отмена"
         actionPool.dispatch(params: .initialLoading)
-        print("MainSceneView INIT")
     }
     
     //MARK: - Dependencies
