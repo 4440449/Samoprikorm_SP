@@ -17,7 +17,7 @@ struct MainSceneView_SP: View {
          actionPool: ActionPool_SP) {
         self.store = store
         self.actionPool = actionPool
-        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Montserrat-Black", size: 38)!]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Montserrat-Black", size: 34)!]
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "Отмена"
         actionPool.dispatch(params: .initialLoading)
     }
@@ -93,7 +93,7 @@ struct MainSceneView_SP: View {
         .navigationViewStyle(.stack)
         .searchable(text: $txtField,
                     placement: .navigationBarDrawer(displayMode: .always),
-                    prompt: "Поиск")
+                    prompt: "Искать продукт")
         .onChange(of: txtField,
                   perform: { newTxt in
             actionPool.dispatch(params: .search(newTxt))
