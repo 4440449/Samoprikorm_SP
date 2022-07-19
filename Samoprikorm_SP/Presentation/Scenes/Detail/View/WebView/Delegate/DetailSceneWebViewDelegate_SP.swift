@@ -13,7 +13,7 @@ final class DetailSceneWebViewDelegate_SP: NSObject,
                                            WKUIDelegate {
     
     override init() {
-        print("init WebViewDelegate_SP")
+//        print("init WebViewDelegate_SP")
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
@@ -27,6 +27,6 @@ final class DetailSceneWebViewDelegate_SP: NSObject,
     
     
     deinit {
-        print("deinit WebViewDelegate_SP")
+//        print("deinit WebViewDelegate_SP")
     }
 }

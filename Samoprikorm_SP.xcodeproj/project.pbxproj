@@ -24,7 +24,6 @@
 		9464928927C5524F00388E37 /* Samoprikorm_SPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9464928827C5524F00388E37 /* Samoprikorm_SPApp.swift */; };
 		9464928B27C5524F00388E37 /* MainScene_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9464928A27C5524F00388E37 /* MainScene_SP.swift */; };
 		9464928D27C5525200388E37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9464928C27C5525200388E37 /* Assets.xcassets */; };
-		9464929027C5525200388E37 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9464928F27C5525200388E37 /* Preview Assets.xcassets */; };
 		946492A127C5935D00388E37 /* State_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946492A027C5935D00388E37 /* State_SP.swift */; };
 		946492A427C5967500388E37 /* Store_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946492A327C5967500388E37 /* Store_SP.swift */; };
 		94768A792847BE7E00980844 /* Reducer_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94768A782847BE7E00980844 /* Reducer_SP.swift */; };
@@ -33,6 +32,7 @@
 		94ACA1182852097B00E971E1 /* BabyNet in Frameworks */ = {isa = PBXBuildFile; productRef = 94ACA1172852097B00E971E1 /* BabyNet */; };
 		94ACA11A28520A1A00E971E1 /* ProductCardsRepository_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ACA11928520A1A00E971E1 /* ProductCardsRepository_SP.swift */; };
 		94ACA11F28520A7C00E971E1 /* ProductCardNetworkRepository_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ACA11E28520A7C00E971E1 /* ProductCardNetworkRepository_SP.swift */; };
+		94DE184E2886D80C001C1B43 /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = 94DE184D2886D80C001C1B43 /* Preview Content */; };
 		94E691F7285AAE010061E0BF /* ProductCardGateway_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E691F6285AAE010061E0BF /* ProductCardGateway_SP.swift */; };
 		94E691F9285AAE0E0061E0BF /* ProductCard_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E691F8285AAE0E0061E0BF /* ProductCard_SP.swift */; };
 		94F8992D288552440009A044 /* CustomSearchNavigationBar_SP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F8992C288552440009A044 /* CustomSearchNavigationBar_SP.swift */; };
@@ -57,7 +57,6 @@
 		9464928827C5524F00388E37 /* Samoprikorm_SPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Samoprikorm_SPApp.swift; sourceTree = "<group>"; };
 		9464928A27C5524F00388E37 /* MainScene_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene_SP.swift; sourceTree = "<group>"; };
 		9464928C27C5525200388E37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9464928F27C5525200388E37 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		946492A027C5935D00388E37 /* State_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State_SP.swift; sourceTree = "<group>"; };
 		946492A327C5967500388E37 /* Store_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store_SP.swift; sourceTree = "<group>"; };
 		94768A782847BE7E00980844 /* Reducer_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer_SP.swift; sourceTree = "<group>"; };
@@ -66,6 +65,7 @@
 		94ACA11928520A1A00E971E1 /* ProductCardsRepository_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardsRepository_SP.swift; sourceTree = "<group>"; };
 		94ACA11E28520A7C00E971E1 /* ProductCardNetworkRepository_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardNetworkRepository_SP.swift; sourceTree = "<group>"; };
 		94D349FD284B780000DDE363 /* Samoprikorm-SP-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Samoprikorm-SP-Info.plist"; sourceTree = SOURCE_ROOT; };
+		94DE184D2886D80C001C1B43 /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
 		94E691F6285AAE010061E0BF /* ProductCardGateway_SP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCardGateway_SP.swift; sourceTree = "<group>"; };
 		94E691F8285AAE0E0061E0BF /* ProductCard_SP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCard_SP.swift; sourceTree = "<group>"; };
 		94F8992C288552440009A044 /* CustomSearchNavigationBar_SP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchNavigationBar_SP.swift; sourceTree = "<group>"; };
@@ -98,14 +98,6 @@
 				9448E9C4284CB3B80024A7BC /* DetailSceneWebViewDelegate_SP.swift */,
 			);
 			path = Delegate;
-			sourceTree = "<group>";
-		};
-		9448E9C9284CBDF00024A7BC /* Configurator */ = {
-			isa = PBXGroup;
-			children = (
-				9448E9C7284CBDDE0024A7BC /* SceneConfigurator_SP.swift */,
-			);
-			path = Configurator;
 			sourceTree = "<group>";
 		};
 		9448E9CC284CCBF10024A7BC /* Configurator */ = {
@@ -168,28 +160,14 @@
 		9464928727C5524F00388E37 /* Samoprikorm_SP */ = {
 			isa = PBXGroup;
 			children = (
-				94D349FD284B780000DDE363 /* Samoprikorm-SP-Info.plist */,
-				9464928827C5524F00388E37 /* Samoprikorm_SPApp.swift */,
+				9478418E2886D78B0043C326 /* Source */,
 				94E691EE285AAD730061E0BF /* Domain */,
 				94ACA11D28520A5400E971E1 /* Data */,
 				9464929827C5682500388E37 /* Presentation */,
-				9464928C27C5525200388E37 /* Assets.xcassets */,
-				944FB731284A473500E5B382 /* Montserrat-ExtraBold.ttf */,
-				944FB730284A473000E5B382 /* Montserrat-Bold.ttf */,
-				944FB72F284A472B00E5B382 /* Montserrat-Black.ttf */,
-				944FB72E284A472400E5B382 /* Montserrat-Regular.ttf */,
-				944FB72C284A471900E5B382 /* Montserrat-Thin.ttf */,
-				9464928E27C5525200388E37 /* Preview Content */,
+				9478418F2886D7940043C326 /* Resources */,
+				94D349FD284B780000DDE363 /* Samoprikorm-SP-Info.plist */,
 			);
 			path = Samoprikorm_SP;
-			sourceTree = "<group>";
-		};
-		9464928E27C5525200388E37 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				9464928F27C5525200388E37 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		9464929627C5680F00388E37 /* View */ = {
@@ -216,7 +194,7 @@
 			children = (
 				9464929F27C5697E00388E37 /* Store */,
 				94E691FA285AAEA20061E0BF /* Scenes */,
-				94D349FF284B900000DDE363 /* Tools */,
+				94D349FF284B900000DDE363 /* Infrastructure */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -264,6 +242,28 @@
 				94F8992C288552440009A044 /* CustomSearchNavigationBar_SP.swift */,
 			);
 			path = NavigationView;
+			sourceTree = "<group>";
+		};
+		9478418E2886D78B0043C326 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9464928827C5524F00388E37 /* Samoprikorm_SPApp.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		9478418F2886D7940043C326 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9464928C27C5525200388E37 /* Assets.xcassets */,
+				944FB731284A473500E5B382 /* Montserrat-ExtraBold.ttf */,
+				944FB730284A473000E5B382 /* Montserrat-Bold.ttf */,
+				944FB72F284A472B00E5B382 /* Montserrat-Black.ttf */,
+				944FB72E284A472400E5B382 /* Montserrat-Regular.ttf */,
+				944FB72C284A471900E5B382 /* Montserrat-Thin.ttf */,
+				94DE184D2886D80C001C1B43 /* Preview Content */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		94A74EE228521CF100C8777D /* Entity */ = {
@@ -317,13 +317,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		94D349FF284B900000DDE363 /* Tools */ = {
+		94D349FF284B900000DDE363 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				9448E9C9284CBDF00024A7BC /* Configurator */,
+				9448E9C7284CBDDE0024A7BC /* SceneConfigurator_SP.swift */,
 				944FB729284A43EE00E5B382 /* Extensions_SP.swift */,
 			);
-			path = Tools;
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 		94E691EE285AAD730061E0BF /* Domain */ = {
@@ -433,9 +433,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				944FB733284A48A400E5B382 /* Montserrat-Bold.ttf in Resources */,
-				9464929027C5525200388E37 /* Preview Assets.xcassets in Resources */,
 				944FB735284A48A800E5B382 /* Montserrat-Regular.ttf in Resources */,
 				944FB732284A48A200E5B382 /* Montserrat-ExtraBold.ttf in Resources */,
+				94DE184E2886D80C001C1B43 /* Preview Content in Resources */,
 				944FB72D284A471900E5B382 /* Montserrat-Thin.ttf in Resources */,
 				9464928D27C5525200388E37 /* Assets.xcassets in Resources */,
 				944FB734284A48A600E5B382 /* Montserrat-Black.ttf in Resources */,
@@ -603,7 +603,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Samoprikorm_SP/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Samoprikorm_SP/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 49V2NFTYLV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -635,7 +635,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Samoprikorm_SP/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Samoprikorm_SP/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 49V2NFTYLV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
