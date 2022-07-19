@@ -34,9 +34,7 @@ struct MainSceneNavigationView_SP: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
-        uiViewController.viewControllers.forEach { vc in
-            vc.view.setNeedsDisplay()
-        }
+        uiViewController.view.setNeedsDisplay()
     }
     
     func makeCoordinator() -> Coordinator {
