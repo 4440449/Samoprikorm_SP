@@ -39,7 +39,8 @@
 
 ## Requirements
 iOS 14.0 +  
-Xcode 13.2.1 +
+Xcode 13.2.1 +  
+Swift 5 +
 
 
 
